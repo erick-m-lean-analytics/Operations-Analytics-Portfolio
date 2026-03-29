@@ -50,8 +50,14 @@ Review and optimise the current pricing model using **recent monthly transaction
 
 **Confidentiality Note**: All data and visualisations shown are 100% synthetic. Real analysis was performed on a private production database.
 
+### 2. Markup Ruleset Optimisation
 
-1. Efficient Parts Delivery Routing for Assembly Lines  
+
+
+
+
+
+2. Efficient Parts Delivery Routing for Assembly Lines  
    - Description: Algorithm to optimize delivery routes for automotive parts, considering constraints like one-way paths, capacities, and just-in-time delivery based on takt time.  
    - Tech: Python with OR-Tools for vehicle routing.  
    - [View Project](./projects/assembly-line-delivery-routing/README.md)
