@@ -2,7 +2,7 @@
 **Erick Mortera**  
 **Data-Driven Optimisation Engineer | Industrial Engineer | Lean & Toyota Production System Expert**
 
-As a Data-Driven Optimisation Engineer with deep roots in Lean Manufacturing and Toyota Production System (TPS), I combine traditional industrial engineering expertise in resource planning, production forecasting, scheduling, and logistics with modern data analytics. 
+As a Data-Driven Optimisation Engineer with deep roots in Lean Manufacturing and Toyota Production System (TPS), I combine traditional industrial engineering expertise in resource planning, production forecasting, scheduling, and logistics with modern **data analytics**. 
 
 I use SQL, Python, and OR-Tools to uncover inefficiencies, improve supply chain performance, and deliver measurable gains in productivity, revenue, and operational efficiency across manufacturing and SaaS environments. 
 
