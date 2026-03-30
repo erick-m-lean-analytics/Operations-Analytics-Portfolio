@@ -55,7 +55,7 @@ The business needed to review and optimise its pricing model to improve revenue 
 
 
 
-### 2. Car Insurer Markup Ruleset Optimisation
+### 2. Insurer Markup Ruleset Optimisation
 
 **Project Overview**
 Data-driven optimisation project for a B2B SaaS platform serving the Australian smash repair industry.
@@ -97,25 +97,11 @@ Active smash repair workshops were frequently manually editing markup rules in t
 
 Confidentiality Note: All data, queries, and visualisations shown here are 100% synthetic. Real analysis was performed on a private production database.
 
-
-
-
-
-
-
-
-2. Efficient Parts Delivery Routing for Assembly Lines  
-   - Description: Algorithm to optimize delivery routes for automotive parts, considering constraints like one-way paths, capacities, and just-in-time delivery based on takt time.  
+### 3. Efficient Parts Delivery Routing for Car Assembly Lines  
+   - Description: Algorithm to optimise delivery routes for automotive parts, considering constraints like one-way paths, capacities, and just-in-time delivery based on takt time.  
    - Tech: Python with OR-Tools for vehicle routing.  
    - [View Project](./projects/assembly-line-delivery-routing/README.md)
 
-2. Workforce Management Calculator 
-   - (Coming soon) Based on cycle times and demand to forecast required team members.
 
-3. Cohort Analysis for Retention  
-   - (Coming soon) Analyzing patterns in manufacturing data.
 
-## Why This Portfolio?
-These projects highlight skills in analytical problem-solving, stakeholder-friendly insights, and operational efficiency—directly relevant to roles in supply chain, mining/oil & gas, and remote operations.
 
-Feel free to star this repo or reach out if you'd like to collaborate!
