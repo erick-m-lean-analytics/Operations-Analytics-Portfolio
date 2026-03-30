@@ -20,11 +20,11 @@ The existing Gold vs Blue tier structure and fixed take-rate logic were not opti
 - Performed a comprehensive review of a large, fully normalised relational database schema to understand the end‑to‑end supplier lifecycle
 - Mapped core entities and relationships across orders, invoices, payment engine data, membership tiers, and supplier attributes
 - Identified and validated key supplier performance and behavioural metrics, including:
-Order volume and Gross Merchandise Value (GMV)
-Quote win rate and order fill rate
-Repairer preference strength
-Order cancellations attributable to supplier fault
-Part type concentration and vehicle make dominance
+  - Order volume and Gross Merchandise Value (GMV)
+  - Quote win rate and order fill rate
+  - Repairer preference strength
+  - Order cancellations attributable to supplier fault
+  - Part type concentration and vehicle make dominance
 - Documented metric definitions and lineage to ensure analytical consistency and reproducibility
 
 ### 2. Monthly Data Aggregation
