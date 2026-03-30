@@ -4,9 +4,9 @@
 **Project Type**: Pricing Strategy & Revenue Optimisation
 
 ## Project Overview
-This project focused on optimising the pricing model of a B2B SaaS platform that connects smash repairers with OEM and Aftermarket parts suppliers. The platform facilitates quote requests and part sourcing, with the business earning revenue primarily through a clip % (take-rate / commission) on the value of parts sold.
+This project focused on optimising the pricing model of a B2B SaaS platform that connects smash repairers with OEM and Aftermarket parts suppliers. 
 
-Suppliers operate under a tiered membership model (Gold vs Blue) that influences their effective take-rate. The goal was to move beyond a simple two-tier system and develop a more nuanced, data-driven pricing approach.
+The platform connects smash repairers (purchasers) with OEM and Aftermarket parts suppliers. Repairers request quotes and source parts, while suppliers list parts and fulfil orders. The SaaS company earns revenue primarily through a **clip % (take-rate / commission)** on the value of parts sold. Suppliers operate under a tiered membership model (Gold vs Blue) that influences their effective take-rate and platform benefits.
 
 ## Problem Statement
 The existing Gold vs Blue tier structure and fixed take-rate logic were not optimally aligned with actual supplier behaviour. Leadership needed to understand:
@@ -25,20 +25,12 @@ The existing Gold vs Blue tier structure and fixed take-rate logic were not opti
 - Calculated revenue contribution, GMV, order volume, credit ratios, and effective clip %
 - Ensured time-series consistency across 24 months of data
 
-### 3. Supplier Behavioural Segmentation
+### 3. Supplier Behavioural Segmentation (K-means Clustering)
+- Engineered features: average Gross Merchandise Value (GMV), order frequency, repairer preference strength, credit behaviour ratio, take-rate sensitivity, and part category diversity.
+- All features were normalised using StandardScaler before clustering to ensure equal contribution regardless of their original scale.
+- Used the elbow method to evaluate the optimal number of clusters. 
+- Applied K-means with `n_clusters=4` and validated cluster quality
 - **Why K-means?** Chosen for its simplicity, scalability, and ability to discover natural groupings in supplier behaviour without requiring labelled data.
-- Features engineered: average GMV, order frequency, repairer preference strength, credit behaviour ratio, take-rate sensitivity, and part category diversity.
-- Used the elbow method to determine the optimal number of clusters.
-- Applied feature scaling and validated cluster quality using the index score and visual inspection.
-
-**Determining Optimal Number of Clusters**
-- Used the **elbow method** to identify the optimal number of clusters by plotting the within-cluster sum of squares (WCSS) against the number of clusters (K).
-- The elbow point helped balance cluster compactness versus interpretability.
-
-![Elbow Method for Optimal K](visuals/elbow_method.png)
-
-**Feature Scaling Note**  
-Prior to clustering, all features were normalised using StandardScaler to ensure equal contribution regardless of their original scale.
 
 ## Cluster Results (Supplier DNA)
 
@@ -46,12 +38,12 @@ After feature engineering and scaling, K-means clustering (validated with elbow 
 
 **Example of Resulting Behavioural Segments** (Synthetic illustration based on the applied methodology)
 
-| Cluster | Description                        | Key Characteristics                          | Typical GMV Level | Take-rate Sensitivity | Recommended Pricing Strategy                          |
-|---------|------------------------------------|----------------------------------------------|-------------------|-----------------------|-------------------------------------------------------|
-| 0       | High-volume stable performers      | High GMV, strong loyalty & specialization    | Very High         | Low                   | Protective lower take-rate to maximise long-term retention |
-| 1       | Growth-oriented consistent suppliers | Medium-high GMV, good efficiency             | High              | Medium                | Balanced dynamic take-rate bands with volume incentives   |
-| 2       | Price-sensitive mid-tier           | Moderate GMV, higher credit usage            | Medium            | High                  | Conservative take-rate with targeted support programs     |
-| 3       | Emerging or variable suppliers     | Lower GMV, mixed specialization              | Low-Medium        | Very High             | Growth-oriented entry rates with performance milestones    |
+| Cluster | Description                          | Key Characteristics                                | Typical GMV Level | Take-rate Sensitivity |      Recommended Pricing Strategy                          |
+|---------|--------------------------------------|----------------------------------------------------|-------------------|-----------------------|------------------------------------------------------------|
+| 0       | High-volume stable performers        | High GMV, strong repairer loyalty & specialization | Very High         | Low                   | Protective lower take-rate to maximise long-term retention |
+| 1       | Growth-oriented consistent suppliers | Medium-high GMV, good efficiency                   | High              | Medium                | Balanced dynamic take-rate bands with volume incentives    |
+| 2       | Price-sensitive mid-tier             | Moderate GMV, higher credit usage                  | Medium            | High                  | Conservative take-rate with targeted support programs      |
+| 3       | Emerging or variable suppliers       | Lower GMV, mixed specialization                    | Low-Medium        | Very High             | Growth-oriented entry rates with performance milestones    |
 
 *(In the actual analysis, 6 meaningful clusters emerged with clear differences in profitability contribution and price elasticity. Full cluster profiles, centroids, and interactive visualisations are available in the Python notebook.)*
 
