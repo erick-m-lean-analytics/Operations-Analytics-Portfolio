@@ -28,31 +28,41 @@ The existing Gold vs Blue tier structure and fixed take-rate logic were not opti
 - Documented metric definitions and lineage to ensure analytical consistency and reproducibility
 
 ### 2. Monthly Data Aggregation
-- Built robust SQL queries to pull the individual metrics 
-- Calculated revenue contribution, GMV, order volume, credit ratios, and effective clip % and aggregated them into monthly metrics per supplier
-- Ensured time-series consistency across 24 months of data
+- Designed and implemented robust SQL aggregation pipelines to extract metric‑level data at the supplier level
+- Calculated and derived commercial and behavioural indicators, including revenue contribution, GMV, order volume, credit utilisation ratios, and effective clip (take‑rate) percentages
+- Aggregated all measures into a consistent monthly grain per supplier to support longitudinal analysis
+- Ensured time‑series integrity and completeness across a 24‑month analysis window, handling missing periods and structural changes explicitly
 
 ### 3. Supplier Behavioural Segmentation (K-means Clustering)
-- Engineered features: average Gross Merchandise Value (GMV), order frequency, repairer preference strength, credit behaviour ratio, take-rate sensitivity, and part category diversity.
-- All features were normalised using StandardScaler before clustering to ensure equal contribution regardless of their original scale.
-- Used the elbow method to evaluate the optimal number of clusters. 
-- Applied K-means with `n_clusters=4` and validated cluster quality
-- **Why K-means?** Chosen for its simplicity, scalability, and ability to discover natural groupings in supplier behaviour without requiring labelled data.
+- Engineered a behavioural feature set capturing both commercial scale and operational behaviour, including:
+ - Average Gross Merchandise Value (GMV)
+ - Order frequency
+ - Repairer preference strength
+ - Credit utilisation ratio
+ - Take‑rate sensitivity
+ - Part category diversity
+- Features were deliberately selected to balance volume, loyalty, risk, and pricing response, rather than relying purely on revenue-based metrics.
+- Applied StandardScaler to normalise all features, ensuring no single variable dominated cluster assignment due to scale effects.
+- Used the elbow method to evaluate within-cluster sum of squares (WCSS) across candidate cluster counts.
+- Selected the optimal cluster count and evaluated clustering quality using silhouette score and centroid stability.
+- Applied K-means clustering with n_clusters=4 for illustration purposes in this repository.
+
+Why K-means?
+K-means was selected for its interpretability, scalability to large populations of suppliers, and effectiveness in identifying natural, unlabeled behavioural groupings. Its centroid-based structure also enabled a straightforward translation of cluster definitions into pricing-strategy logic.
 
 ## Cluster Results (Supplier DNA)
 
-After feature engineering and scaling, K-means clustering (validated with the elbow method and silhouette score) revealed distinct behavioural segments among suppliers.
+After feature engineering and scaling, K-means clustering (validated with the elbow method and silhouette score) revealed clearly differentiated supplier behavioural segments.
+Note: The table below is a synthetic illustration aligned to the observed behavioural patterns. In the real analysis, six statistically distinct and economically meaningful clusters emerged.
 
-**Example of Resulting Behavioural Segments** (Synthetic illustration based on the applied methodology)
+**Example of Resulting Behavioural Segments** 
 
 | Cluster | Description                          | Key Characteristics                                | Typical GMV Level | Take-rate Sensitivity |      Recommended Pricing Strategy                          |
 |---------|--------------------------------------|----------------------------------------------------|-------------------|-----------------------|------------------------------------------------------------|
-| 0       | High-volume stable performers        | High GMV, strong repairer loyalty & specialization | Very High         | Low                   | Protective lower take-rate to maximise long-term retention |
+| 0       | High-volume stable performers        | Very High GMV, strong loyalty, high specialization | Very High         | Low                   | Protective lower take-rate to maximise long-term retention |
 | 1       | Growth-oriented consistent suppliers | Medium-high GMV, good efficiency                   | High              | Medium                | Balanced dynamic take-rate bands with volume incentives    |
 | 2       | Price-sensitive mid-tier             | Moderate GMV, higher credit usage                  | Medium            | High                  | Conservative take-rate with targeted support programs      |
 | 3       | Emerging or variable suppliers       | Lower GMV, mixed specialization                    | Low-Medium        | Very High             | Growth-oriented entry rates with performance milestones    |
-
-*(In the actual analysis, 6 meaningful clusters emerged with clear differences in profitability contribution and price elasticity. Full cluster profiles, centroids, and interactive visualisations are available in the Python notebook.)*
 
 These behavioural segments ("supplier DNA") provided significantly richer insights than the existing Gold vs Blue tiers and formed the foundation for the pricing reclassification recommendations.
 
