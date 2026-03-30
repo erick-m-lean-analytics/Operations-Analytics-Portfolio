@@ -31,14 +31,14 @@ The business needed to review and optimise its pricing model to improve revenue 
 
 **Methodology Used**  
 - Explored and mapped a large normalised relational database schema to understand relationships across orders, invoices, payments, and supplier tiers
-- Designed and implemented efficient monthly aggregation queries to surface pricing trends, revenue contribution, and performance metrics
+- Designed and implemented efficient monthly aggregation queries to surface key operational attributes of the supplier. 
+- Creating an index and normalisation of the index for each metric
 - Applied K-means clustering (with elbow method for optimal cluster selection) to segment suppliers into distinct behavioural groups ("supplier DNA") based on order patterns, GMV, credit behaviour, and take-rate response
 - Quantified key differences in supplier behaviour and profitability across pricing tiers and take-rates
 
 **Tech Used**  
-- SQL: Time-based grouping, multi-table joins, and revenue calculations on normalised tables
+- MySQL: Time-based grouping, multi-table joins, and revenue calculations on normalised tables
 - Python: Pandas for data transformation, Scikit-learn (K-means clustering with elbow method), Plotly for visualisation and trend analysis
-- Exploratory data analysis and feature scaling prior to clustering
 
 **Results & Recommendations**  
 - Developed multiple pricing reclassification options and uplift strategies, including:
@@ -54,54 +54,48 @@ The business needed to review and optimise its pricing model to improve revenue 
 **Confidentiality Note**: All data, queries, and visualisations shown here are 100% synthetic. Real analysis was performed on a private production database.
 
 
-### 2. Markup Ruleset Optimisation & Revenue Leakage Analysis
+
+### 2. Car Insurer Markup Ruleset Optimisation
+
 **Project Overview**
 Data-driven optimisation project for a B2B SaaS platform serving the Australian smash repair industry.
-The platform enables smash repair workshops (purchasers) to source automotive parts from OEM, parallel, aftermarket, recycled, and reconditioned suppliers. Workshops apply configurable markup rulesets to determine the final sell price to insurers or customers. These rules operate at two main levels:
 
-Client-level (standard/default ruleset): Default markup percentages set by each smash repair workshop, with the ability to apply custom overrides.
-Insurer-level ruleset: Specific markup percentages negotiated or mandated by insurers, broken down by part type (OEM, parallel, aftermarket, recycled, reconditioned).
+The platform enables smash repair workshops (purchasers) to source automotive parts from OEM, parallel, aftermarket, recycled, and reconditioned suppliers. Workshops apply configurable markup rulesets to determine the final sell price to insurers or customers. These rules operate at the client level (standard/default markups with custom overrides) and insurer level (specific markups by part type). The effective markup flows through quoting, supplier pricing selection, purchase orders, and automated invoice posting. 
 
-The effective markup is calculated by combining the standard/default rules with any overrides or insurer-specific rates. This flows through draft quoting, supplier pricing selection, purchase orders, and automated invoice posting — including complex handling for credits, cancellations, No Longer Available (NLA) items, non-active month adjustments, and paid vs unpaid invoices. The SaaS platform earns revenue via a clip % (take-rate / commission) applied to the final marked-up value.
+**Problem Statement (Product Manager-level)**
+Active smash repair workshops were frequently manually editing markup rules in the platform. This caused:
+- Undercharging or overcharging of insurers and walk-in customers
+- Friction and approval delays between repairers and insurers
+- Higher rework rates and longer lead times for repairs
+- Increased dependency on support team training (“only certain staff know the correct rules”)
 
-**Business Problem Statement**
-The platform was experiencing inconsistent and suboptimal markup application across its client base. Many smash repair workshops frequently overrode the standard/default markup rules, while insurer-specific rules were not always correctly mapped or enforced. This created several issues:
+**Root Causes**
+- New repairers were automatically assigned a legacy “Standard” ruleset during onboarding
+- Estimators regularly performed manual overrides on sell prices instead of using configured rules
 
-- Revenue leakage for the platform (lower clip % revenue due to lower effective markups)
-- Difficulty in predicting and controlling platform fee income
-- Potential margin erosion for repair workshops or disputes with insurers
-- Lack of visibility into which rules were actually driving revenue versus which were being bypassed
-
-**Objectives**
-The Head of Product needed a clear understanding of how the current standard/default + insurer + override rules were performing in the real world and actionable recommendations to optimise the entire ruleset for better platform economics without harming client relationships.
-Stakeholder Request (Product Manager-level)
-Analyse and optimise the current markup ruleset using recent transactional data from quoting, supplier pricing, and posted invoices. Specifically requested:
-
-**Key Deliverables**
-
-Markup performance dashboard showing standard/default vs effective markups, override frequency, variance analysis, fee revenue contribution, and period-over-period trends
-Segmentation of clients and insurers based on markup behaviour, override patterns, part-type usage, and profitability impact
-Ruleset optimisation scenarios with estimated revenue uplift, client margin effects, and retention risk
-Prioritised, actionable recommendations for refining standard/default markups, insurer-specific rules, override controls, and automated posting logic
-
-**My Contribution as Data-Driven Optimisation Engineer:**
-
-Explored and mapped the complex normalised relational database schema linking client configurations, insurer mappings, draft/supplier pricing, purchase orders, and invoice posting tables
-Designed and implemented robust aggregation queries to calculate real-world effective markups, override impact, credit/NLA/cancellation adjustments, and variance metrics
-Applied K-means clustering to segment clients and insurers into behavioural groups (“markup DNA”) based on override frequency, part-type markup usage, fee contribution, credit behaviour, and compliance patterns — enabling targeted ruleset adjustments and personalised recommendations
-Quantified revenue leakage from current standard/default + override logic versus optimised scenarios and simulated business impact
-Delivered a clean, executive-ready dataset with visualised insights and prioritised change roadmap
+**Key Objectives** 
+- Identify which smash repair shops were performing frequent manual edits/overrides
+- Understand how often custom overrides were actually occurring in practice
+- Identify gaps in pricing method rulesets when used with different insurers
+  
+**Methodology Used**
+- Explored and mapped the complex normalised relational database schema linking repairer's price method configurations, insurer mappings, and invoice posting tables
+- Performed exploratory data analysis and data preparation (cleaning and shaping dataframes)
+- Designed and implemented robust aggregation queries to calculate real-world effective markups and quantify override impact
 
 **Tech Used**
+- MySQL: Multi-table joins across normalised schema, conditional aggregation, and time-based analysis
+- Excel Power Pivot for reporting and visualisation
 
-SQL: Multi-table joins across normalised schema, conditional aggregation for credits/NLA/cancellations/non-active adjustments, time-based grouping, and window functions for trend analysis
-Python: Pandas for data transformation and feature engineering, Scikit-learn (K-means clustering with elbow method for optimal K), Plotly for interactive dashboards and scenario visualisations
-Exploratory data analysis, feature scaling, and business-rule simulation prior to clustering
+**Results & Recommendations**
+- Created clear visibility into standard/default markups versus actual effective markups
+- Identified and proposed Top 5 insurers and specific ruleset baselines based on reach and quote volumes that could serve as new default baselines
+- Recommended a targeted list of smash repairers for the pilot program to test the new baseline ruleset
 
-Status: Completed – generalised queries, synthetic dataset, and insights available
-→ View Project Details
-Confidentiality Note: All data and visualisations shown are 100% synthetic. Real analysis was performed on a private production database.
+**Status:** Completed – generalised queries, synthetic dataset, and insights available
+→ View Full Project Details
 
+Confidentiality Note: All data, queries, and visualisations shown here are 100% synthetic. Real analysis was performed on a private production database.
 
 
 
