@@ -4,7 +4,7 @@
 **Project Type**: Pricing Strategy & Revenue Optimisation
 
 ## Project Overview
-This project focused on optimising the pricing model of a B2B SaaS platform that connects smash repairers with OEM and Aftermarket parts suppliers. 
+This project focused on optimising the pricing model of a B2B SaaS platform that connects smash repairers with OEM (Original Equipment Manufacturer) and Aftermarket parts suppliers. 
 
 The platform connects smash repairers (purchasers) with OEM and Aftermarket parts suppliers. Repairers request quotes and source parts, while suppliers list parts and fulfil orders. The SaaS company earns revenue primarily through a **clip % (take-rate / commission)** on the value of parts sold. Suppliers operate under a tiered membership model (Gold vs Blue) that influences their effective take-rate and platform benefits.
 
@@ -17,12 +17,19 @@ The existing Gold vs Blue tier structure and fixed take-rate logic were not opti
 ## Methodology
 
 ### 1. Database Exploration & Mapping
-- Conducted a thorough review of the normalised relational schema
-- Identified key relationships between orders, invoices, payment engine data, membership tiers, and supplier attributes
+- Performed a comprehensive review of a large, fully normalised relational database schema to understand the end‑to‑end supplier lifecycle
+- Mapped core entities and relationships across orders, invoices, payment engine data, membership tiers, and supplier attributes
+- Identified and validated key supplier performance and behavioural metrics, including:
+Order volume and Gross Merchandise Value (GMV)
+Quote win rate and order fill rate
+Repairer preference strength
+Order cancellations attributable to supplier fault
+Part type concentration and vehicle make dominance
+- Documented metric definitions and lineage to ensure analytical consistency and reproducibility
 
 ### 2. Monthly Data Aggregation
-- Built robust SQL queries to aggregate monthly metrics per supplier
-- Calculated revenue contribution, GMV, order volume, credit ratios, and effective clip %
+- Built robust SQL queries to pull the individual metrics 
+- Calculated revenue contribution, GMV, order volume, credit ratios, and effective clip % and aggregated them into monthly metrics per supplier
 - Ensured time-series consistency across 24 months of data
 
 ### 3. Supplier Behavioural Segmentation (K-means Clustering)
@@ -34,7 +41,7 @@ The existing Gold vs Blue tier structure and fixed take-rate logic were not opti
 
 ## Cluster Results (Supplier DNA)
 
-After feature engineering and scaling, K-means clustering (validated with elbow method and silhouette score) revealed distinct behavioural segments among suppliers.
+After feature engineering and scaling, K-means clustering (validated with the elbow method and silhouette score) revealed distinct behavioural segments among suppliers.
 
 **Example of Resulting Behavioural Segments** (Synthetic illustration based on the applied methodology)
 
