@@ -53,7 +53,7 @@ After feature engineering and scaling, K-means clustering (validated with elbow 
 | 2       | Price-sensitive mid-tier           | Moderate GMV, higher credit usage            | Medium            | High                  | Conservative take-rate with targeted support programs     |
 | 3       | Emerging or variable suppliers     | Lower GMV, mixed specialization              | Low-Medium        | Very High             | Growth-oriented entry rates with performance milestones    |
 
-*(In the actual analysis, 4–6 meaningful clusters emerged with clear differences in profitability contribution and price elasticity. Full cluster profiles, centroids, and interactive visualisations are available in the Python notebook.)*
+*(In the actual analysis, 6 meaningful clusters emerged with clear differences in profitability contribution and price elasticity. Full cluster profiles, centroids, and interactive visualisations are available in the Python notebook.)*
 
 These behavioural segments ("supplier DNA") provided significantly richer insights than the existing Gold vs Blue tiers and formed the foundation for the pricing reclassification recommendations.
 
