@@ -32,9 +32,9 @@ The business needed to review and optimise its pricing model to improve revenue 
 **Methodology Used**  
 - Explored and mapped a large normalised relational database schema to understand relationships across orders, invoices, payments, and supplier tiers
 - Designed and implemented efficient monthly aggregation queries to surface key operational attributes of the supplier. 
-- Creating an index and normalisation of the index for each metric
-- Applied K-means clustering (with elbow method for optimal cluster selection) to segment suppliers into distinct behavioural groups ("supplier DNA") based on order patterns, GMV, credit behaviour, and take-rate response
-- Quantified key differences in supplier behaviour and profitability across pricing tiers and take-rates
+- Constructed a composite index and normalised individual metrics to enable consistent cross-supplier comparison
+- Applied K-means clustering using the elbow method to determine the optimal number of clusters to segment suppliers into distinct behavioural groups ("supplier DNA") based on order patterns, GMV, credit behaviour, and take-rate response
+- Quantified key differences in supplier behaviour, performance, and profitability across pricing tiers and take-rates
 
 **Tech Used**  
 - MySQL: Time-based grouping, multi-table joins, and revenue calculations on normalised tables
