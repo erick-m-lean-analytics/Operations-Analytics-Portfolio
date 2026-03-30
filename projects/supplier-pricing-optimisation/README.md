@@ -67,9 +67,15 @@ Note: The table below is a synthetic illustration aligned to the observed behavi
 These behavioural segments ("supplier DNA") provided significantly richer insights than the existing Gold vs Blue tiers and formed the foundation for the pricing reclassification recommendations.
 
 ### 4. Comparative Analysis
-- Analysed performance differences between the existing Gold/Blue tiers and the new behavioural clusters
-- Quantified how take-rate levels affected different supplier segments
+- Compared supplier performance across existing Gold/Blue tiers and the new behavioural clusters
+- Analysed differences in:
+  - Revenue contribution
+  - GMV growth trajectories
+  - Credit utilisation patterns
+  - Take‑rate elasticity by segment
+- Quantified how identical take‑rate levels produced materially different outcomes depending on supplier behavioural profile
 
+This analysis highlighted structural mismatches between tier-based pricing and actual supplier economics.
 ## Tech Stack
 - **SQL**: Complex multi-table joins, window functions, and time-series aggregation on normalised tables
 - **Python**: Pandas for data preparation, Scikit-learn (K-means clustering + elbow method), Plotly for interactive visualisations
