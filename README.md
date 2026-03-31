@@ -10,7 +10,8 @@ I use SQL, Python, and OR-Tools to uncover inefficiencies, improve supply chain 
 - **Name**: Erick Mortera
 - **Specialisation**: Data-Driven Operational Optimisation using Lean/TPS principles
 - **Focus Areas**: Routing optimisation, demand forecasting, workforce modelling, and predictive analytics.
-- **Tools & Skills**: SQL, Python (Pandas, NumPy, OR-Tools), Excel/Power BI, data visualisation.
+- **Analytical Tools & Skills**: SQL, Python (Pandas, NumPy, OR-Tools), Excel/Power BI, data visualisation.
+- **Lean Tools**: Standardised Work, Pull-System, Total Preventive Maintenance, Quick-Changeover (SMED), 5S  
 - **Contact**:erick.s.mortera@gmail.com
 
 ## Featured Projects
