@@ -52,8 +52,8 @@ The business needed to review and optimise its pricing model to improve revenue 
 **Status**: Completed – generalised queries, synthetic dataset, and insights available  
 → [View Full Project Details](./projects/supplier-pricing-optimisation)
 
-**Confidentiality Note**: All data, queries, and visualisations shown here are 100% synthetic. Real analysis was performed on a private production database.
-
+**Confidentiality Note**  
+The SQL queries and Python scripts in this project closely reflect the logic and approach I used in the real analysis. Table names, column names, and all data have been generalised and replaced with synthetic examples to protect confidentiality. The original work was performed on a private production database.
 
 
 ### Project 2. Insurer Markup Ruleset Optimisation
@@ -96,7 +96,8 @@ Active smash repair workshops were frequently manually editing markup rules in t
 **Status:** Completed – generalised queries, synthetic dataset, and insights available
 → View Full Project Details
 
-Confidentiality Note: All data, queries, and visualisations shown here are 100% synthetic. Real analysis was performed on a private production database.
+**Confidentiality Note**  
+The SQL queries in this project closely reflect the logic and approach I used in the real analysis. Table names, column names, and all data have been generalised and replaced with synthetic examples to protect confidentiality. The original work was performed on a private production database.
 
 ### Project 3. Efficient Parts Delivery Routing for Car Assembly Lines  
    - Description: Algorithm to optimise delivery routes for automotive parts, considering constraints like one-way paths, capacities, and just-in-time delivery based on takt time.  
