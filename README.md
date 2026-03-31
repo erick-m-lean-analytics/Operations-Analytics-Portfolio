@@ -14,7 +14,7 @@ I use SQL, Python, and OR-Tools to uncover inefficiencies, improve supply chain 
 - **Contact**:erick.s.mortera@gmail.com
 
 ## Featured Projects
-### 1. SaaS Supplier Pricing Optimisation 
+### Project 1. SaaS Supplier Pricing Optimisation 
 **Project Overview**  
 Data-driven optimisation project for a B2B SaaS platform in the automotive parts industry.  
 
@@ -55,7 +55,7 @@ The business needed to review and optimise its pricing model to improve revenue 
 
 
 
-### 2. Insurer Markup Ruleset Optimisation
+### Project 2. Insurer Markup Ruleset Optimisation
 
 **Project Overview**
 Data-driven optimisation project for a B2B SaaS platform serving the Australian smash repair industry.
@@ -97,7 +97,7 @@ Active smash repair workshops were frequently manually editing markup rules in t
 
 Confidentiality Note: All data, queries, and visualisations shown here are 100% synthetic. Real analysis was performed on a private production database.
 
-### 3. Efficient Parts Delivery Routing for Car Assembly Lines  
+### Project 3. Efficient Parts Delivery Routing for Car Assembly Lines  
    - Description: Algorithm to optimise delivery routes for automotive parts, considering constraints like one-way paths, capacities, and just-in-time delivery based on takt time.  
    - Tech: Python with OR-Tools for vehicle routing.  
    - [View Project](./projects/assembly-line-delivery-routing/README.md)
