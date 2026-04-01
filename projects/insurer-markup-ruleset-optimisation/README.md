@@ -14,13 +14,12 @@ Root Causes
 New repairers were automatically assigned a legacy “Standard” ruleset during onboarding
 Estimators regularly performed manual overrides on sell prices instead of using configured rules
 
-##Methodology
+## Methodology
 
 ### 1. Database Exploration & Mapping
 Conducted a thorough review of the large normalised relational database schema. Mapped relationships across client pricing configurations, insurer mappings, quote drafts, purchase orders, and invoice posting tables to understand how markup rules actually flow from configuration to final invoiced price.
 
-Key SQL files:
-
+**Key SQL files:**
 markup_ruleset_effective_calc.sql – core aggregation of standard vs actual markups
 override_frequency_analysis.sql – quantification of manual edits
 
@@ -31,12 +30,10 @@ Gap Analysis & Baseline Identification
 Performed exploratory data analysis to identify the most common insurer-specific rulesets in use and quantify the business impact of overrides on revenue leakage and operational friction.
 
 **Tech Stack**
-
 MySQL: Multi-table joins across normalised schema, conditional aggregation, and time-based analysis
 Excel Power Pivot for reporting and visualisation
 
 **Skills Demonstrated**
-
 End-to-end relational database analysis in a complex normalised schema
 Quantifying real-world pricing behaviour versus configured rules
 Translating analytical findings into actionable product and operational recommendations
