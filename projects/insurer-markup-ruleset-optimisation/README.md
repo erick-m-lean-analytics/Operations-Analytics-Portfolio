@@ -1,5 +1,6 @@
 # Insurer Markup Ruleset Optimisation – Detailed Case Study
 **Role:** Business Process Excellence Engineer
+
 **Project Type:** Pricing Ruleset & Operational Efficiency Optimisation
 
 ## Project Overview
