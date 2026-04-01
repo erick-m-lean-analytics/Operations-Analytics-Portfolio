@@ -2,12 +2,12 @@
 **Role:** Business Process Excellence Engineer
 **Project Type:** Pricing Ruleset & Operational Efficiency Optimisation
 
-##Project Overview
+## Project Overview
 Data-driven optimisation project for a B2B SaaS platform serving the Australian smash repair industry.
 The platform enables smash repair workshops (purchasers) to source automotive parts from OEM, parallel, aftermarket, recycled, and reconditioned suppliers. Workshops apply configurable markup rulesets to determine the final sell price to insurers or walk-in customers. These rules operate at the client level (standard/default markups with custom overrides) and at the insurer level (specific markups by part type). The effective markup flows through quoting, supplier pricing selection, purchase orders, and automated invoice posting.
 
 
-##Problem Statement
+## Problem Statement
 Active smash repair workshops were frequently manually editing markup rules in the platform. This caused undercharging or overcharging of insurers and customers, friction and approval delays, higher rework rates, longer lead times for repairs, and increased dependency on support team training.
 Root Causes
 
@@ -16,7 +16,7 @@ Estimators regularly performed manual overrides on sell prices instead of using 
 
 ##Methodology
 
-###1. Database Exploration & Mapping
+### 1. Database Exploration & Mapping
 Conducted a thorough review of the large normalised relational database schema. Mapped relationships across client pricing configurations, insurer mappings, quote drafts, purchase orders, and invoice posting tables to understand how markup rules actually flow from configuration to final invoiced price.
 
 Key SQL files:
@@ -25,7 +25,7 @@ markup_ruleset_effective_calc.sql – core aggregation of standard vs actual mar
 override_frequency_analysis.sql – quantification of manual edits
 
 
-###2. Real-World Markup & Override Analysis
+### 2. Real-World Markup & Override Analysis
 Designed and implemented robust aggregation queries to calculate effective markups (standard/default vs actual) and measure the frequency and impact of manual overrides across repairers and insurers.
 Gap Analysis & Baseline Identification
 Performed exploratory data analysis to identify the most common insurer-specific rulesets in use and quantify the business impact of overrides on revenue leakage and operational friction.
