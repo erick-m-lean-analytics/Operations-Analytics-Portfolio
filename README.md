@@ -61,14 +61,10 @@ The SQL queries and Python scripts in this project closely reflect the logic and
 **Project Overview**
 Data-driven optimisation project for a B2B SaaS platform serving the Australian smash repair industry.
 
-The platform enables smash repair workshops (purchasers) to source automotive parts from OEM, parallel, aftermarket, recycled, and reconditioned suppliers. Workshops apply configurable markup rulesets to determine the final sell price to insurers or customers. These rules operate at the client level (standard/default markups with custom overrides) and insurer level (specific markups by part type). The effective markup flows through quoting, supplier pricing selection, purchase orders, and automated invoice posting. 
+The platform enables smash repair workshops (purchasers) to source automotive parts from OEM, parallel, aftermarket, recycled, and reconditioned suppliers. Workshops apply configurable markup rulesets to determine the final sell price to insurers or walk-in customers. These rules operate at both the client level (standard/default markups with custom overrides) and the insurer level (specific markups by part type). The effective markup flows through quoting, supplier pricing selection, purchase orders, and automated invoice posting.
 
 **Problem Statement (Product Manager-level)**
-Active smash repair workshops were frequently manually editing markup rules in the platform. This caused:
-- Undercharging or overcharging of insurers and walk-in customers
-- Friction and approval delays between repairers and insurers
-- Higher rework rates and longer lead times for repairs
-- Increased dependency on support team training (“only certain staff know the correct rules”)
+Active smash repair workshops were frequently manually editing markup rules in the platform. This caused undercharging or overcharging of insurers and customers, friction and approval delays, higher rework rates, longer lead times for repairs, and increased dependency on support team training.
 
 **Root Causes**
 - New repairers were automatically assigned a legacy “Standard” ruleset during onboarding
