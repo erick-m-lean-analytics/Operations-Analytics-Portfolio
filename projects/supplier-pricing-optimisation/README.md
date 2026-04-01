@@ -29,7 +29,7 @@ Applied StandardScaler, used the elbow method for cluster validation, and perfor
 - [`data_preparation_and_clustering.py`](./python_analysis/data_preparation_and_clustering.py)
 
 **Visual:**
-- [Elbow Method for Optimal K](./visuals/elbow_method.png)
+- [Elbow Method for Optimal K](./visuals/Elbow_method.png)
   
 ### 4. Comparative Analysis & Recommendations
 Compared performance across existing Gold/Blue tiers versus new behavioural clusters.  
