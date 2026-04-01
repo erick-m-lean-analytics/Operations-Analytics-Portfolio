@@ -25,7 +25,7 @@ Key SQL file: [repairer_override_groups.sql](./sql/repairer_override_groups.sql)
 ### 2. Custom Markup Rules Identification  
 Analysed the specific markup rules being used by repairers in the custom-ruleset group to understand real-world pricing behaviour versus the configured defaults.
 
-Key SQL file: [repairer_override_groups.sql](./sql/custom_markup_rules.sql)
+Key SQL file: [custom_markup_rules.sql](./sql/custom_markup_rules.sql)
 
 ### 3. Top 5 Insurer Candidate Selection  
 Because the custom rules showed many variations even for the same insurer, identified and recommended the Top 5 insurers (based on reach and quote volume) that would be the strongest candidates for a new standardised baseline ruleset.
