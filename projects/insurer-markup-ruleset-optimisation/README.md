@@ -35,11 +35,9 @@ Key SQL file: [top5_insurer_baseline_candidates.sql](./sql/top5_insurer_baseline
 ### 4. Pilot Repairer Identification  
 Selected a targeted list of smash repairers who would be ideal participants for a pilot program to test the new baseline ruleset.
 
-Key SQL file: `pilot_repairer_selection.sql`
+Key SQL file: [pilot_repairer_selection.sql](./sql/pilot_repairer_selection.sql)
 
 ## Results & Recommendations
-- Quantified the high-potential impact of the new baseline ruleset: smash repair workshops and their owners will retain more take-away profit while significantly reducing the lead time spent manually configuring markups  
-
 - Identified four distinct repairer behavioural groups based on custom-rule adoption (last 90 days):
   - Purely Custom (100% of drafts): ~20% of active repairers
   - High Custom Adoption (>75% of drafts): ~6% of repairers
@@ -50,17 +48,18 @@ Key SQL file: `pilot_repairer_selection.sql`
 
 - Additional insight from custom-ruleset analysis: Even among repairers using custom rules, a portion of the configurations were incorrect or set in a way that would cause the repairer to lose profit (under-charging)
 
+- Quantified the high-potential impact of the new baseline ruleset: smash repair workshops and their owners will retain more take-home profit while significantly reducing the lead time spent manually configuring markups  
+
 - Benefits of implementing the new baseline ruleset:
   - Increased take-home profit for repairers by reducing incorrect or suboptimal markup configurations
   - Efficiency Gains: Reducing even a small percentage of manual edits frees up time for higher-value work (e.g., more repairs or better customer service)
   - Scalability and Futureproofing: Creates a more consistent, supportable platform for long-term growth
 
 - Proposed two options for the Top 5 insurers as candidates for the new standardised baseline ruleset:
-  - Option 1 (Market Reach): Allianz, SUNCORP, IAG/NRMA, Auto & General, RACQ – ideal for widespread efficiency gains across the most repairers
-  - Option 2 (Quote Volume): RACQ, SUNCORP, IAG/NRMA, Auto & General, Allianz – ideal for high-throughput scenarios where even small optimisations yield big savings
+  - Option 1 (Market Reach): The five insurers with the broadest shop adoption – ideal for widespread efficiency gains across the most repairers
+  - Option 2 (Quote Volume): The five insurers with the highest quote throughput – ideal for high-throughput scenarios where even small optimisations yield big savings
 
-- Recommended a targeted list of smash repairers for the pilot program (high-volume shops aligned with the top insurers) to test the new baseline ruleset and validate the efficiency gains.
-
+- Recommended a targeted list of smash repairers for the pilot program (high-volume shops aligned with the top insurers) to test the new baseline ruleset and validate the efficiency and profit-protection gains.
 
 **Tech Stack**
 MySQL: Multi-table joins across normalised schema, conditional aggregation, and time-based analysis
