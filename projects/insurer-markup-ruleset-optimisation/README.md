@@ -21,6 +21,7 @@ Estimators regularly performed manual overrides on sell prices instead of using 
 Conducted a thorough review of the large normalised relational database schema. Mapped relationships across client pricing configurations, insurer mappings, quote drafts, purchase orders, and invoice posting tables to understand how markup rules actually flow from configuration to final invoiced price.
 
 **Key SQL files:**
+
 markup_ruleset_effective_calc.sql – core aggregation of standard vs actual markups
 override_frequency_analysis.sql – quantification of manual edits
 
