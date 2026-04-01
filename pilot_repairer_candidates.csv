@@ -1,8 +1,0 @@
-Repairer_Name,MSO_Group,Total_Quote_Volume,Dominant_Insurer,Avg_Quotes_Per_Day,Recommendation_Notes
-High Volume Repairer A,None,2450,Major Insurer B,27.2,Strong candidate - high daily volume
-High Volume Repairer B,None,2180,Major Insurer E,24.2,Strong candidate
-High Volume Repairer C,None,1650,Private,18.3,Good volume with mixed rules
-Hail Network Repairer A,Australasian Hail Network,1480,Major Insurer A,16.4,High volume in standard segment
-Collision Centre A,Q-West Group,1390,Major Insurer B,15.4,Consistent performer
-Autobody Specialist A,None,1320,Major Insurer C,14.7,Good pilot candidate
-Hail Repairs Specialist A,United Hail,1280,Major Insurer D,14.2,High volume standard user
