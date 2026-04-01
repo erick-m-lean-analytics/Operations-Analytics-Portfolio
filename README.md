@@ -50,11 +50,11 @@ The business needed to review and optimise its pricing model to improve revenue 
 - Translated complex database outputs into stakeholder-friendly insights and visualisations to support strategic decision-making
 
 **Status**: Completed – generalised queries, synthetic dataset, and insights available  
-→ [View Full Project Details](./projects/supplier-pricing-optimisation)
 
 **Confidentiality Note**  
 The SQL queries and Python scripts in this project closely reflect the logic and approach I used in the real analysis. Table names, column names, and all data have been generalised and replaced with synthetic examples to protect confidentiality. The original work was performed on a private production database.
 
+→ [View Full Project Details](./projects/supplier-pricing-optimisation)
 
 ### Project 2. Insurer Markup Ruleset Optimisation
 
@@ -101,6 +101,7 @@ The SQL queries in this project closely reflect the logic and approach I used in
 ### Project 3. Efficient Parts Delivery Routing for Car Assembly Lines  
    - Description: Algorithm to optimise delivery routes for automotive parts, considering constraints like one-way paths, capacities, and just-in-time delivery based on takt time.  
    - Tech: Python with OR-Tools for vehicle routing.  
+  
    - [View Project](./projects/assembly-line-delivery-routing/README.md)
 
 
