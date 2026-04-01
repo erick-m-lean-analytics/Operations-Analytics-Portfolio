@@ -164,4 +164,4 @@ final_cols = ['supplier_id_Blue', 'supplier_id_Gold', 'INDEX_Scale', 'INDEX_Effi
 summary[final_cols].round(4).to_csv(summary_output)
 df.round(4).to_csv(master_output, index=False)
 
-print(f"\n✅ MASTER CLEANSED: All indices are now relative to the active population.")
+print(f"\n MASTER CLEANSED: All indices are now relative to the active population.")
