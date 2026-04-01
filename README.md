@@ -59,6 +59,7 @@ The SQL queries and Python scripts in this project closely reflect the logic and
 ### Project 2. Insurer Markup Ruleset Optimisation
 
 **Project Overview**
+
 Data-driven optimisation project for a B2B SaaS platform serving the Australian smash repair industry.
 
 The platform enables smash repair workshops (purchasers) to source automotive parts from OEM, parallel, aftermarket, recycled, and reconditioned suppliers. Workshops apply configurable markup rulesets to determine the final sell price to insurers or walk-in customers. These rules operate at both the client level (standard/default markups with custom overrides) and the insurer level (specific markups by part type). The effective markup flows through quoting, supplier pricing selection, purchase orders, and automated invoice posting.
