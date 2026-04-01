@@ -15,8 +15,8 @@ The existing Gold vs Blue tier structure and fixed take-rate logic were not alig
 Conducted a thorough review of a large normalised relational database schema. Mapped relationships across orders, invoices, payment data, membership tiers, and supplier attributes. Identified key metrics including GMV, order volume, quote win rate, fill rate, credit behaviour, part category concentration, and repairer preference.
 
 **Key SQL files:**
-- [`core_monthly_dataset.sql`](../sql_examples/core_monthly_dataset.sql) – main monthly aggregation
-- [`supplier_credit_profile.sql`](../sql_examples/supplier_credit_profile.sql) – credit behaviour metrics
+- [`core_monthly_dataset.sql`](./sql_examples/core_monthly_dataset.sql) – main monthly aggregation
+- [`supplier_credit_profile.sql`](./sql_examples/supplier_credit_profile.sql) – credit behaviour metrics
 
 ### 2. Monthly Data Aggregation
 Designed and implemented SQL queries to build a consistent monthly supplier-level dataset. Calculated commercial and behavioural indicators including revenue contribution, GMV, order volume, credits, and effective take-rate.
@@ -25,16 +25,19 @@ Designed and implemented SQL queries to build a consistent monthly supplier-leve
 Engineered features capturing scale, loyalty, risk, and pricing response (average GMV, order frequency, repairer preference strength, credit ratio, take-rate sensitivity, part category diversity).  
 Applied StandardScaler, used the elbow method for cluster validation, and performed K-means clustering.
 
-**Visual:** [Elbow Method for Optimal K](../visuals/Elbow_method.png)
+**Python script:**
+- [`data_preparation_and_clustering.py`](./python_analysis/data_preparation_and_clustering.py)
 
+**Visual:**
+- [Elbow Method for Optimal K](./visuals/elbow_method.png)
+  
 ### 4. Comparative Analysis & Recommendations
 Compared performance across existing Gold/Blue tiers versus new behavioural clusters.  
 Quantified differences in revenue contribution, GMV trajectories, credit patterns, and take-rate elasticity.  
 Recommended moving from rigid tier rules to segment-informed dynamic take-rate adjustments.
 
 **Output files:**
-- [`Cluster_Uplift_Summary.csv`](../data/Cluster_Uplift_Summary.csv) – cluster-level summary
-- Python script: [`data_preparation_and_clustering.py`](../python_analysis/data_preparation_and_clustering.py)
+- [`Cluster_Uplift_Summary.csv`](./data/Cluster_Uplift_Summary.csv) – cluster-level summary
 
 ## Tech Stack
 - **SQL**: Complex multi-table joins and time-series aggregation
