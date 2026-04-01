@@ -60,6 +60,9 @@ Key SQL file: [pilot_repairer_selection.sql](./sql/pilot_repairer_selection.sql)
   - Option 2 (Quote Volume): The five insurers with the highest quote throughput – ideal for high-throughput scenarios where even small optimisations yield big savings
 
 - Recommended a targeted list of smash repairers for the pilot program (high-volume shops aligned with the top insurers) to test the new baseline ruleset and validate the efficiency and profit-protection gains.
+**Sample Outputs**  
+- [Top 5 Insurer Candidates](./results/top5_insurer_candidates.csv)  
+- [Pilot Repairer Candidates](./results/pilot_repairer_candidates.csv)
 
 **Tech Stack**
 MySQL: Multi-table joins across normalised schema, conditional aggregation, and time-based analysis
