@@ -5,8 +5,8 @@
 
 ## Project Overview
 Data-driven optimisation project for a B2B SaaS platform serving the Australian smash repair industry.
-The platform enables smash repair workshops (purchasers) to source automotive parts from OEM, parallel, aftermarket, recycled, and reconditioned suppliers. Workshops apply configurable markup rulesets to determine the final sell price to insurers or walk-in customers. These rules operate at the client level (standard/default markups with custom overrides) and at the insurer level (specific markups by part type). The effective markup flows through quoting, supplier pricing selection, purchase orders, and automated invoice posting.
 
+The platform enables smash repair workshops to apply configurable markup rulesets that determine the final sell price to insurers or walk-in customers. These rules flow from client-level defaults and insurer-specific overrides all the way through quoting, purchase orders, and automated invoice posting.
 
 ## Problem Statement
 Active smash repair workshops were frequently manually editing markup rules in the platform. This caused undercharging or overcharging of insurers and customers, friction and approval delays, higher rework rates, longer lead times for repairs, and increased dependency on support team training.
@@ -17,19 +17,32 @@ Estimators regularly performed manual overrides on sell prices instead of using 
 
 ## Methodology
 
-### 1. Database Exploration & Mapping
-Conducted a thorough review of the large normalised relational database schema. Mapped relationships across client pricing configurations, insurer mappings, quote drafts, purchase orders, and invoice posting tables to understand how markup rules actually flow from configuration to final invoiced price.
+### 1. Repairer Override Behaviour Analysis  
+Identified how many smash repair workshops were performing manual edits. Compared those configured with the legacy “Standard” ruleset against those using custom rulesets. Discovered that repairers do not use a single ruleset exclusively, they interchange between them. This revealed four distinct behavioural groups: purely custom, purely standard, mix-more-custom, and mix-more-standard.
 
-**Key SQL files:**
+Key SQL file: `repairer_override_groups.sql`
 
-markup_ruleset_effective_calc.sql – core aggregation of standard vs actual markups
-override_frequency_analysis.sql – quantification of manual edits
+### 2. Custom Markup Rules Identification  
+Analysed the specific markup rules being used by repairers in the custom-ruleset group to understand real-world pricing behaviour versus the configured defaults.
 
+Key SQL file: `custom_markup_rules.sql`
 
-### 2. Real-World Markup & Override Analysis
-Designed and implemented robust aggregation queries to calculate effective markups (standard/default vs actual) and measure the frequency and impact of manual overrides across repairers and insurers.
-Gap Analysis & Baseline Identification
-Performed exploratory data analysis to identify the most common insurer-specific rulesets in use and quantify the business impact of overrides on revenue leakage and operational friction.
+### 3. Top 5 Insurer Candidate Selection  
+Because the custom rules showed many variations even for the same insurer, identified and recommended the Top 5 insurers (based on reach and quote volume) that would be the strongest candidates for a new standardised baseline ruleset.
+
+Key SQL file: `top5_insurer_baseline_candidates.sql`
+
+### 4. Pilot Repairer Identification  
+Selected a targeted list of smash repairers who would be ideal participants for a pilot program to test the new baseline ruleset.
+
+Key SQL file: `pilot_repairer_selection.sql`
+
+## Results & Recommendations
+
+- Created clear visibility into standard/default markups versus actual effective markups across the four behavioural groups
+- Identified and proposed the Top 5 insurers and their specific ruleset baselines (based on reach and quote volumes) that could serve as new default baselines for the platform
+- Recommended a targeted list of smash repairers for the pilot program to test the new baseline ruleset
+
 
 **Tech Stack**
 MySQL: Multi-table joins across normalised schema, conditional aggregation, and time-based analysis
