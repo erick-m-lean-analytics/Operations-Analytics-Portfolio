@@ -4,49 +4,45 @@
 **Project Type**: Pricing Strategy & Revenue Optimisation
 
 ## Project Overview
-This project focused on optimising the pricing model of a B2B SaaS platform that connects smash repairers with OEM (Original Equipment Manufacturer) and Aftermarket parts suppliers. The platform connects smash repairers (purchasers) with OEM and Aftermarket parts suppliers. Repairers request quotes and source parts, while suppliers list parts and fulfil orders. The SaaS company earns revenue primarily through a **clip % (take-rate / commission)** on the value of parts sold. Suppliers operate under a tiered membership model (Gold vs Blue) that influences their effective take-rate and platform benefits.
+This project optimised the pricing model of a B2B SaaS platform connecting smash repairers with OEM and Aftermarket parts suppliers. The platform earns revenue through a **clip % (take-rate / commission)** on parts sold. Suppliers operate under a tiered membership model (Gold vs Blue) that affects their effective take-rate.
 
 ## Problem Statement
-The existing Gold vs Blue tier structure and fixed take-rate logic were not optimally aligned with actual supplier behaviour. Leadership needed to understand:
-- How different tiers and take-rates impact order volume, GMV, credits, and overall revenue
+The existing Gold vs Blue tier structure and fixed take-rate logic were not aligned with actual supplier behaviour. Leadership needed to understand:
+- How tiers and take-rates impact order volume, GMV, credits, and overall revenue
 - Whether suppliers could be segmented more effectively based on real operational patterns
 - What pricing adjustments could drive sustainable revenue growth while protecting supplier retention
 
 ## Methodology
 
 ### 1. Database Exploration & Mapping
-- Performed a comprehensive review of a large, fully normalised relational database schema to understand the end‑to‑end supplier lifecycle
-- Mapped core entities and relationships across orders, invoices, payment engine data, membership tiers, and supplier attributes
-- Identified and validated key supplier performance and behavioural metrics, including:
+- Conducted a thorough review of a large normalised relational database schema
+- Mapped relationships across orders, invoices, payment engine data, membership tiers, and supplier attributes
+- Identified and validated key performance and behavioural metrics, including:
     - Order volume and Gross Merchandise Value (GMV)
     - Quote win rate and order fill rate
     - Repairer preference strength
     - Order cancellations attributable to supplier fault
     - Part type concentration and vehicle make dominance
-- Documented metric definitions and lineage to ensure analytical consistency and reproducibility
 
 ### 2. Monthly Data Aggregation
-- Designed and implemented robust SQL aggregation pipelines to extract metric‑level data at the supplier level
+- Designed and implemented robust SQL aggregation queries to build a consistent monthly supplier-level dataset
 - Calculated and derived commercial and behavioural indicators, including revenue contribution, GMV, order volume, credit utilisation ratios, and effective clip (take‑rate) percentages
-- Aggregated all measures into a consistent monthly grain per supplier to support longitudinal analysis
-- Ensured time‑series integrity and completeness across a 24‑month analysis window, handling missing periods and structural changes explicitly
+- Aggregated data over a 24-month window while handling missing periods and structural changes
 
+**Key SQL files:**
+- [`core_monthly_dataset.sql`](../sql_examples/core_monthly_dataset.sql) – main monthly aggregation
+- [`supplier_credit_profile.sql`](../sql_examples/supplier_credit_profile.sql) – credit behaviour metrics
+
+  
 ### 3. Supplier Behavioural Segmentation (K-means Clustering)
-- Engineered a behavioural feature set capturing both commercial scale and operational behaviour, including:
-   - Average Gross Merchandise Value (GMV)
-   - Order frequency
-   - Repairer preference strength
-   - Credit utilisation ratio
-   - Take‑rate sensitivity
-   - Part category diversity
-- Features were deliberately selected to balance volume, loyalty, risk, and pricing response, rather than relying purely on revenue-based metrics.
-- Applied StandardScaler to normalise all features, ensuring no single variable dominated cluster assignment due to scale effects.
-- Used the elbow method to evaluate within-cluster sum of squares (WCSS) across candidate cluster counts.
-- Selected the optimal cluster count and evaluated clustering quality using silhouette score and centroid stability.
-- Applied K-means clustering with n_clusters=4 for illustration purposes in this repository.
+- Engineered features capturing scale, loyalty, risk, and pricing response:
+   - Average GMV, Order frequency, Repairer preference strength, Credit utilisation ratio, Take‑rate sensitivity, Part category diversity
+- Applied StandardScaler for normalisation
+- Used the elbow method and silhouette score to determine the optimal number of clusters
 
-Why K-means?
-K-means was selected for its interpretability, scalability to large populations of suppliers, and effectiveness in identifying natural, unlabeled behavioural groupings. Its centroid-based structure also enabled a straightforward translation of cluster definitions into pricing-strategy logic.
+  
+ 
+- Applied K-means clustering (illustrated with 4 clusters in this repository)
 
 ## Cluster Results (Supplier DNA)
 
@@ -65,47 +61,39 @@ Note: The table below is a synthetic illustration aligned to the observed behavi
 These behavioural segments ("supplier DNA") provided significantly richer insights than the existing Gold vs Blue tiers and formed the foundation for the pricing reclassification recommendations.
 
 ### 4. Comparative Analysis
-- Compared supplier performance across existing Gold/Blue tiers and the new behavioural clusters
-- Analysed differences in:
-  - Revenue contribution
-  - GMV growth trajectories
-  - Credit utilisation patterns
-  - Take‑rate elasticity by segment
-- Quantified how identical take‑rate levels produced materially different outcomes depending on supplier behavioural profile
-
-This analysis highlighted structural mismatches between tier-based pricing and actual supplier economics.
+- Compared performance across existing Gold/Blue tiers versus the new behavioural clusters
+- Quantified differences in GMV contribution, credit patterns, and take-rate elasticity
+- Highlighted mismatches between rigid tier-based pricing and actual supplier economics
 
 ## Tech Stack
 - **MySQL**: Complex multi-table joins, window functions, and time-series aggregation on normalised tables
-- **Python**: Pandas for data preparation, Scikit-learn (K-means clustering + elbow method), Plotly for interactive visualisations
-- Exploratory data analysis, feature scaling, and cluster validation techniques
+- **Python**: Pandas for data merging and transformation, Scikit-learn (K-means clustering + elbow method), Plotly for visualisation
+- Feature engineering, scaling, and cluster validation
 
 ## Results & Recommendations
-
 **Key Findings**
-- Supplier behaviour naturally fell into more than two distinct segments, revealing limitations in the current binary tier system.
-- Certain segments showed high sensitivity to take-rate changes, while others were more tolerant.
-- Clear opportunities existed to move from rigid tier rules to segment-informed pricing logic.
+- Supplier behaviour naturally formed more distinct segments than the binary Gold/Blue tiers
+- Different segments showed markedly different responses to take-rate changes
+- Clear opportunities to move from one-size-fits-all tier rules to segment-informed pricing logic
 
 **Pricing Optimisation Recommendations**
-- Implement tier-specific clip % adjustments based on behavioural segments rather than a one-size-fits-all approach per tier
-- Introduce dynamic take-rate bands that adapt to supplier GMV and order patterns
-- Develop targeted pricing strategies for high-potential segments to improve retention and revenue balance
-- Provided multiple reclassification scenarios with estimated potential revenue uplift ranges
+- Replace rigid tier rules with behavioural-segment-based take-rate adjustments
+- Introduce dynamic take-rate bands based on GMV and order patterns
+- Develop targeted strategies for high-potential segments to improve retention while protecting overall revenue
 
 ## Lessons Learned
 - Behavioural clustering using K-means provided significantly richer insights than relying solely on the existing Gold/Blue tiers.
+- Combining domain knowledge with unsupervised learning creates more actionable pricing strategies
 - Clear communication of technical results (especially clustering) to non-technical stakeholders is critical for driving real business change.
 
 ## Skills Demonstrated
-- End-to-end relational database analysis
-- Unsupervised machine learning for operational segmentation
-- Translating complex analytical outputs into strategic pricing recommendations
+- End-to-end relational database analysis and metric design
+- Feature engineering and unsupervised machine learning for operational segmentation
+- Translating complex analytics into strategic pricing recommendations
 - Optimisation thinking that balances revenue growth with supplier sustainability
 
 **Status**: Completed (synthetic version for public portfolio)  
-**Confidentiality Note**: All code, data, and visualisations in this repository are 100% synthetic and generalised. The real analysis was performed on a private production database.
-
+**Confidentiality Note**: The queries and Python scripts closely reflect the logic and approach used in the real analysis. All table names, column names, and datasets have been generalised and replaced with synthetic examples for confidentiality. The original work was performed on a private production database.
 ---
 
 ← [Back to Main Portfolio](../../README.md)
