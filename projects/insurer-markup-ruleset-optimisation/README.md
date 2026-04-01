@@ -18,7 +18,7 @@ Estimators regularly performed manual overrides on sell prices instead of using 
 ## Methodology
 
 ### 1. Repairer Override Behaviour Analysis  
-Identified how many smash repair workshops were performing manual edits. Compared those configured with the legacy “Standard” ruleset against those using custom rulesets. Discovered that repairers do not use a single ruleset exclusively, they interchange between them. This revealed four distinct behavioural groups: purely custom, purely standard, mix-more-custom, and mix-more-standard.
+Identified how many smash repair workshops were performing manual edits. Compared those configured with the legacy “Standard” ruleset against those using custom rulesets. Discovered that repairers do not use a single ruleset exclusively; they alternate between them. This revealed four distinct behavioural groups: purely custom, purely standard, mix-more-custom, and mix-more-standard.
 
 Key SQL file: [repairer_override_groups.sql](./sql/repairer_override_groups.sql)
 
@@ -28,7 +28,7 @@ Analysed the specific markup rules being used by repairers in the custom-ruleset
 Key SQL file: [custom_markup_rules.sql](./sql/custom_markup_rules.sql)
 
 ### 3. Top 5 Insurer Candidate Selection  
-Because the custom rules showed many variations even for the same insurer, identified and recommended the Top 5 insurers (based on reach and quote volume) that would be the strongest candidates for a new standardised baseline ruleset.
+Because the custom rules showed many variations even for the same insurer, I identified and recommended the Top 5 insurers (based on reach and quote volume) that would be the strongest candidates for a new standardised baseline ruleset.
 
 Key SQL file: `top5_insurer_baseline_candidates.sql`
 
@@ -38,11 +38,27 @@ Selected a targeted list of smash repairers who would be ideal participants for 
 Key SQL file: `pilot_repairer_selection.sql`
 
 ## Results & Recommendations
-
 - Quantified the high-potential impact of the new baseline ruleset: smash repair workshops and their owners will retain more take-away profit while significantly reducing the lead time spent manually configuring markups  
-- Created clear visibility into standard/default markups versus actual effective markups across the four behavioural groups  
-- Identified and proposed the Top 5 insurers and their specific ruleset baselines (based on reach and quote volumes) that could serve as new default baselines for the platform  
-- Recommended a targeted list of smash repairers for the pilot program to test the new baseline ruleset
+
+- Identified four distinct repairer behavioural groups based on custom-rule adoption (last 90 days):
+  - Purely Custom (100% of drafts): 21% of active repairers
+  - High Custom Adoption (>75% of drafts): 6% of repairers
+  - Hybrid User (25%-75%): 3.2% of repairers
+  - Low Custom Adoption (<25%): 70% of repairers
+
+- Magnitude of manual edits across all line items was low (0.7%–1.7% per draft), meaning rules were applied without tweaks in ~98% of drafts. However, there is a strong rationale for establishing a new baseline and running pilots to prevent future increases in manual edits.
+
+- Benefits of the new baseline ruleset:
+  - Risk of Inaction: Waiting for manual-edit rates to hit 5–10% would make it harder to fix
+  - Efficiency Gains: Reducing even 1% of manual edits frees up time for higher-value work (e.g., more repairs or better customer service)
+  - Scalability and Futureproofing: Creates a more consistent, supportable platform for growth
+
+- Proposed two options for the Top 5 insurers as candidates for the new standardised baseline ruleset:
+  - Option 1 (Market Reach): Allianz, SUNCORP, IAG/NRMA, Auto & General, RACQ – ideal for widespread efficiency gains across the most repairers
+  - Option 2 (Quote Volume): RACQ, SUNCORP, IAG/NRMA, Auto & General, Allianz – ideal for high-throughput scenarios where even small optimisations yield big savings
+
+- Recommended a targeted list of smash repairers for the pilot program (high-volume shops aligned with the top insurers) to test the new baseline ruleset and validate the efficiency gains.
+
 
 **Tech Stack**
 MySQL: Multi-table joins across normalised schema, conditional aggregation, and time-based analysis
