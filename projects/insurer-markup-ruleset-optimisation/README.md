@@ -30,7 +30,6 @@ Key SQL file: [custom_markup_rules.sql](./sql/custom_markup_rules.sql)
 ### 3. Top 5 Insurer Candidate Selection  
 Because the custom rules showed many variations even for the same insurer, I identified and recommended the Top 5 insurers (based on reach and quote volume) that would be the strongest candidates for a new standardised baseline ruleset.
 
-Key SQL file: `top5_insurer_baseline_candidates.sql`
 Key SQL file: [top5_insurer_baseline_candidates.sql](./sql/top5_insurer_baseline_candidates.sql)
 
 ### 4. Pilot Repairer Identification  
