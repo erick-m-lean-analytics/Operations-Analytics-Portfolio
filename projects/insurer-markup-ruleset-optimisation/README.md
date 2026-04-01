@@ -46,4 +46,7 @@ Balancing pricing accuracy with user experience and repairer retention
 
 **Confidentiality Note:**
 The SQL queries in this project closely reflect the logic and approach I used in the real analysis. Table names, column names, and all data have been generalised and replaced with synthetic examples to protect confidentiality. The original work was performed on a private production database.
-← Back to Main Portfolio
+
+← [Back to Main Portfolio](../../README.md)
+
+
