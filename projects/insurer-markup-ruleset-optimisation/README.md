@@ -39,10 +39,10 @@ Key SQL file: `pilot_repairer_selection.sql`
 
 ## Results & Recommendations
 
-- Created clear visibility into standard/default markups versus actual effective markups across the four behavioural groups
-- Identified and proposed the Top 5 insurers and their specific ruleset baselines (based on reach and quote volumes) that could serve as new default baselines for the platform
+- Quantified the high-potential impact of the new baseline ruleset: smash repair workshops and their owners will retain more take-away profit while significantly reducing the lead time spent manually configuring markups  
+- Created clear visibility into standard/default markups versus actual effective markups across the four behavioural groups  
+- Identified and proposed the Top 5 insurers and their specific ruleset baselines (based on reach and quote volumes) that could serve as new default baselines for the platform  
 - Recommended a targeted list of smash repairers for the pilot program to test the new baseline ruleset
-
 
 **Tech Stack**
 MySQL: Multi-table joins across normalised schema, conditional aggregation, and time-based analysis
