@@ -98,10 +98,41 @@ The SQL queries in this project closely reflect the logic and approach I used in
 
 → [View Full Project Details](./projects/insurer-markup-ruleset-optimisation)
 
-### Project 3. Efficient Parts Delivery Routing for Car Assembly Lines  
-   - Description: Algorithm to optimise delivery routes for automotive parts, considering constraints like one-way paths, capacities, and just-in-time delivery based on takt time.  
-   - Tech: Python with OR-Tools for vehicle routing.  
-  
+### Project 3. Automated JIT Resource Planning & Routing Optimisation
+
+**Project Overview**
+
+This project digitises the complex manual planning process used for parts delivery in high-precision manufacturing. By translating Industrial Engineering logic into Python code, I built a tool that calculates the exact number of delivery resources needed and generates a precise schedule to maintain Just-In-Time (JIT) flow. 
+
+The tool is designed to automate the standard planning steps for designing a parts delivery system in a car manufacturing plant: ensuring parts arrive exactly when needed while managing physical floor constraints such as one-way aisles and limited lineside space.
+
+Although it was designed for high-volume manufacturing, the logic is industry-agnostic and can be applied to any operation that requires synchronised logistics, such as mining supply chains, large-scale warehousing, or regional land logistics.
+
+**Problem Statement (Operational Planning)**
+In a high-volume environment, planning delivery routes manually is prone to error. If deliveries are unsynchronised, two major issues occur:
+
+- Traffic Congestion: Too many vehicles are hitting the same one-way aisles at once, causing delays.
+- Inventory Imbalance: Too much stock at the assembly line (overflow) or too much at the warehouse (blocking flow).
+
+**Key Objectives**
+- Synchronised Release: Time the departure of each delivery to prevent "traffic jams" in unidirectional paths.
+- Inventory Minimisation: Maintain the minimum stock at both the warehouse and the lineside to support continuous flow.
+- Resource Optimisation: Determine the fewest number of drivers/vehicles required to meet the production beat (Takt Time).
+- Path Constraints: If delivering in a unidirectional path, strictly follow one-way traffic rules.
+
+**Methodology**
+- Network Mapping (NetworkX): I mapped the facility as a "Directed Graph." This allowed the program to recognise that moving from Point A to B might be a short distance, but the return from B to A must follow a specific one-way loop.
+- Automated Logic (OR-Tools): I translated manual "expert" rules into mathematical constraints:
+
+  Capacity: How much can one vehicle carry?
+  Parts unloading cycle times: How long does it take to unload the parts onto lineside flow racks
+
+  Timing: When must the vehicle leave to arrive at the exact moment stock runs low? - 
+
+  Spacing: How many seconds must be between vehicle releases to avoid congestion in the aisles? - This is used to set a timetable of delivery to follow
+
+Schedule Generation: The tool outputs a "Logistics Timetable" that tells operators exactly what to load, when to leave, and which path to take.
+
    - [View Project](./projects/assembly-line-delivery-routing/README.md)
 
 
