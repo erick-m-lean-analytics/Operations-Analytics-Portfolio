@@ -1,21 +1,44 @@
 # Operations-Analytics-Portfolio
-**Erick Mortera**  
-**Data-Driven Optimisation Engineer | Industrial Engineer | Lean & Toyota Production System Expert**
-
-As a Data-Driven Optimisation Engineer with deep roots in Lean Manufacturing and Toyota Production System (TPS), I combine traditional industrial engineering expertise in resource planning, production forecasting, scheduling, and logistics with modern **data analytics**. 
-
-I use SQL, Python, and OR-Tools to uncover inefficiencies, improve supply chain performance, and deliver measurable gains in productivity, revenue, and operational efficiency across manufacturing and SaaS environments. 
-
-## About Me
-- **Name**: Erick Mortera
-- **Specialisation**: Data-Driven Operational Optimisation using Lean/TPS principles
-- **Focus Areas**: Routing optimisation, demand forecasting, workforce modelling, and predictive analytics.
-- **Analytical Tools & Skills**: SQL, Python (Pandas, NumPy, OR-Tools), Excel/Power BI, data visualisation.
-- **Lean Tools**: Standardised Work, Pull-System, Total Preventive Maintenance, Quick-Changeover (SMED), 5S  
-- **Contact**:erick.s.mortera@gmail.com
-
 ## Featured Projects
-### Project 1. SaaS Supplier Pricing Optimisation 
+### Project 1. Digitising JIT Resource Planning & Routing Optimisation
+
+**Project Overview**
+
+This project digitises the complex manual planning process used for parts delivery in high-precision manufacturing. By translating Industrial Engineering logic into Python code, I built a tool that calculates the exact number of delivery resources needed and generates a precise schedule to maintain Just-In-Time (JIT) flow. 
+
+The tool is designed to automate the standard planning steps for designing a parts delivery system in a car manufacturing plant: ensuring parts arrive exactly when needed while managing physical floor constraints such as one-way aisles and limited lineside space.
+
+Although it was designed for high-volume manufacturing, the logic is industry-agnostic and can be applied to any operation that requires synchronised logistics, such as mining supply chains, large-scale warehousing, or regional land logistics.
+
+**Problem Statement (Operational Planning)**
+In a high-volume environment, planning delivery routes manually is prone to error. If deliveries are unsynchronised, two major issues occur:
+
+- Traffic Congestion: Too many vehicles are hitting the same one-way aisles at once, causing delays.
+- Inventory Imbalance: Too much stock at the assembly line (overflow) or too much at the warehouse (blocking flow).
+
+**Key Objectives**
+- Synchronised Release: Time the departure of each delivery to prevent "traffic jams" in unidirectional paths.
+- Inventory Minimisation: Maintain the minimum stock at both the warehouse and the lineside to support continuous flow.
+- Resource Optimisation: Determine the fewest number of drivers/vehicles required to meet the production beat (Takt Time).
+- Path Constraints: If delivering in a unidirectional path, strictly follow one-way traffic rules.
+
+**Methodology**
+- Network Mapping (NetworkX): I mapped the facility as a "Directed Graph." This allowed the program to recognise that moving from Point A to B might be a short distance, but the return from B to A must follow a specific one-way loop.
+- Automated Logic (OR-Tools): I translated manual "expert" rules into mathematical constraints:
+
+  Capacity: How much can one vehicle carry?
+  Parts unloading cycle times: How long does it take to unload the parts onto lineside flow racks
+
+  Timing: When must the vehicle leave to arrive at the exact moment stock runs low? - 
+
+  Spacing: How many seconds must be between vehicle releases to avoid congestion in the aisles? - This is used to set a timetable of delivery to follow
+
+Schedule Generation: The tool outputs a "Logistics Timetable" that tells operators exactly what to load, when to leave, and which path to take.
+
+   - [View Project](./projects/assembly-line-delivery-routing/README.md)
+
+
+### Project 2. SaaS Supplier Pricing Optimisation 
 **Project Overview**  
 Data-driven optimisation project for a B2B SaaS platform in the automotive parts industry.  
 
@@ -56,7 +79,7 @@ The SQL queries and Python scripts in this project closely reflect the logic and
 
 → [View Full Project Details](./projects/supplier-pricing-optimisation)
 
-### Project 2. Insurer Markup Ruleset Optimisation
+### Project 3. Insurer Markup Ruleset Optimisation
 
 **Project Overview**
 
@@ -98,42 +121,7 @@ The SQL queries in this project closely reflect the logic and approach I used in
 
 → [View Full Project Details](./projects/insurer-markup-ruleset-optimisation)
 
-### Project 3. Automated JIT Resource Planning & Routing Optimisation
 
-**Project Overview**
-
-This project digitises the complex manual planning process used for parts delivery in high-precision manufacturing. By translating Industrial Engineering logic into Python code, I built a tool that calculates the exact number of delivery resources needed and generates a precise schedule to maintain Just-In-Time (JIT) flow. 
-
-The tool is designed to automate the standard planning steps for designing a parts delivery system in a car manufacturing plant: ensuring parts arrive exactly when needed while managing physical floor constraints such as one-way aisles and limited lineside space.
-
-Although it was designed for high-volume manufacturing, the logic is industry-agnostic and can be applied to any operation that requires synchronised logistics, such as mining supply chains, large-scale warehousing, or regional land logistics.
-
-**Problem Statement (Operational Planning)**
-In a high-volume environment, planning delivery routes manually is prone to error. If deliveries are unsynchronised, two major issues occur:
-
-- Traffic Congestion: Too many vehicles are hitting the same one-way aisles at once, causing delays.
-- Inventory Imbalance: Too much stock at the assembly line (overflow) or too much at the warehouse (blocking flow).
-
-**Key Objectives**
-- Synchronised Release: Time the departure of each delivery to prevent "traffic jams" in unidirectional paths.
-- Inventory Minimisation: Maintain the minimum stock at both the warehouse and the lineside to support continuous flow.
-- Resource Optimisation: Determine the fewest number of drivers/vehicles required to meet the production beat (Takt Time).
-- Path Constraints: If delivering in a unidirectional path, strictly follow one-way traffic rules.
-
-**Methodology**
-- Network Mapping (NetworkX): I mapped the facility as a "Directed Graph." This allowed the program to recognise that moving from Point A to B might be a short distance, but the return from B to A must follow a specific one-way loop.
-- Automated Logic (OR-Tools): I translated manual "expert" rules into mathematical constraints:
-
-  Capacity: How much can one vehicle carry?
-  Parts unloading cycle times: How long does it take to unload the parts onto lineside flow racks
-
-  Timing: When must the vehicle leave to arrive at the exact moment stock runs low? - 
-
-  Spacing: How many seconds must be between vehicle releases to avoid congestion in the aisles? - This is used to set a timetable of delivery to follow
-
-Schedule Generation: The tool outputs a "Logistics Timetable" that tells operators exactly what to load, when to leave, and which path to take.
-
-   - [View Project](./projects/assembly-line-delivery-routing/README.md)
 
 
 
