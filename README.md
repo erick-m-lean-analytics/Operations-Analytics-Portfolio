@@ -24,7 +24,7 @@ Without the computational speed of a digital optimisation tool, the planning lea
 - Inventory Minimisation: Maintain the minimum stock at both the warehouse and the lineside to support continuous flow.
 - Path Constraints: If delivering in a unidirectional path, strictly follow one-way traffic rules.
 
-   - [View Project](./projects/automated-jit-planning/README.md)
+   - [View Full Project Details](./projects/automated-jit-planning/README.md)
 
 
 ### Project 2. SaaS Supplier Pricing Optimisation 
