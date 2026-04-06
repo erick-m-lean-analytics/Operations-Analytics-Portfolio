@@ -1,39 +1,25 @@
 # Operations-Analytics-Portfolio
 ## Featured Projects
-### Project 1. Digitising JIT Resource Planning & Routing Optimisation
+### Project 1. Automated JIT Logistics & Routing Optimisation
+## Industrial Engineering | Operations Research | Python ##
 
 **Project Overview**
+This project digitises the complex manual planning process used for Just-In-Time (JIT) parts delivery in high-precision manufacturing. By translating Toyota-style Industrial Engineering (IE) logic into a Python-based optimisation engine, I developed a tool that determines the optimal fleet size and generates precise delivery schedules to maintain synchronised flow.
 
-This project digitises the complex manual planning process used for parts delivery in high-precision manufacturing. By translating Industrial Engineering logic into Python code, I built a tool that calculates the exact number of delivery resources needed and generates a precise schedule to maintain Just-In-Time (JIT) flow. 
+While modelled on automotive assembly line constraints, specifically the balance between Takt Time and lineside space, the underlying logic is industry-agnostic. It is designed to optimise high-frequency internal micro-logistics: the time-critical delivery cycles required to feed continuous production or extraction processes in mining, large-scale warehousing, and regional supply chains."
 
-The tool is designed to automate the standard planning steps for designing a parts delivery system in a car manufacturing plant: ensuring parts arrive exactly when needed while managing physical floor constraints such as one-way aisles and limited lineside space.
+**Problem Statement (Operational Planning Bottleneck)**
+In high-volume JIT environments, designing synchronised routes that minimise operational cost is a highly iterative and time-intensive process. Because a planner must manually simulate the dynamic interactions between Takt Time, container volumes, and physical path constraints, even minor changes to production variables require a total recalculation of the logistics network.
 
-Although it was designed for high-volume manufacturing, the logic is industry-agnostic and can be applied to any operation that requires synchronised logistics, such as mining supply chains, large-scale warehousing, or regional land logistics.
-
-**Problem Statement (Operational Planning)**
-In a high-volume environment, planning delivery routes manually is prone to error. If deliveries are unsynchronised, two major issues occur:
-
-- Traffic Congestion: Too many vehicles are hitting the same one-way aisles at once, causing delays.
-- Inventory Imbalance: Too much stock at the assembly line (overflow) or too much at the warehouse (blocking flow).
+Without the computational speed of a digital optimisation tool, the planning lead time is significantly prolonged. This delay limits the operation's ability to respond to real-time changes and increases the risk of:
+- Traffic Congestion: Difficulty in precisely phasing vehicle departures to avoid simultaneous arrivals in unidirectional (one-way) aisles.
+- Inventory Imbalance: The challenge of perfectly aligning replenishment cycles with consumption rates, leading to lineside overflows or critical stock-outs.
 
 **Key Objectives**
+- Resource Optimisation: Determine the fewest number of drivers/vehicles required to meet the production beat (Takt Time).
 - Synchronised Release: Time the departure of each delivery to prevent "traffic jams" in unidirectional paths.
 - Inventory Minimisation: Maintain the minimum stock at both the warehouse and the lineside to support continuous flow.
-- Resource Optimisation: Determine the fewest number of drivers/vehicles required to meet the production beat (Takt Time).
 - Path Constraints: If delivering in a unidirectional path, strictly follow one-way traffic rules.
-
-**Methodology**
-- Network Mapping (NetworkX): I mapped the facility as a "Directed Graph." This allowed the program to recognise that moving from Point A to B might be a short distance, but the return from B to A must follow a specific one-way loop.
-- Automated Logic (OR-Tools): I translated manual "expert" rules into mathematical constraints:
-
-  Capacity: How much can one vehicle carry?
-  Parts unloading cycle times: How long does it take to unload the parts onto lineside flow racks
-
-  Timing: When must the vehicle leave to arrive at the exact moment stock runs low? - 
-
-  Spacing: How many seconds must be between vehicle releases to avoid congestion in the aisles? - This is used to set a timetable of delivery to follow
-
-Schedule Generation: The tool outputs a "Logistics Timetable" that tells operators exactly what to load, when to leave, and which path to take.
 
    - [View Project](./projects/assembly-line-delivery-routing/README.md)
 
