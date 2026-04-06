@@ -1,7 +1,6 @@
 # Operations-Analytics-Portfolio
 ## Featured Projects
 ### Project 1. Automated JIT Logistics & Routing Optimisation
-### Industrial Engineering | Operations Research | Python ###
 
 **Project Overview**
 
@@ -25,6 +24,7 @@ Without the computational speed of a digital optimisation tool, the planning lea
 - Path Constraints: If delivering in a unidirectional path, strictly follow one-way traffic rules.
 
    - [View Full Project Details](./projects/automated-jit-planning/README.md)
+
 
 
 ### Project 2. SaaS Supplier Pricing Optimisation 
@@ -67,6 +67,8 @@ The business needed to review and optimise its pricing model to improve revenue 
 The SQL queries and Python scripts in this project closely reflect the logic and approach I used in the real analysis. Table names, column names, and all data have been generalised and replaced with synthetic examples to protect confidentiality. The original work was performed on a private production database.
 
 → [View Full Project Details](./projects/supplier-pricing-optimisation)
+
+
 
 ### Project 3. Insurer Markup Ruleset Optimisation
 
