@@ -1,14 +1,16 @@
 # Operations-Analytics-Portfolio
 ## Featured Projects
 ### Project 1. Automated JIT Logistics & Routing Optimisation
-## Industrial Engineering | Operations Research | Python ##
+### Industrial Engineering | Operations Research | Python ###
 
 **Project Overview**
+
 This project digitises the complex manual planning process used for Just-In-Time (JIT) parts delivery in high-precision manufacturing. By translating Toyota-style Industrial Engineering (IE) logic into a Python-based optimisation engine, I developed a tool that determines the optimal fleet size and generates precise delivery schedules to maintain synchronised flow.
 
 While modelled on automotive assembly line constraints, specifically the balance between Takt Time and lineside space, the underlying logic is industry-agnostic. It is designed to optimise high-frequency internal micro-logistics: the time-critical delivery cycles required to feed continuous production or extraction processes in mining, large-scale warehousing, and regional supply chains."
 
 **Problem Statement (Operational Planning Bottleneck)**
+
 In high-volume JIT environments, designing synchronised routes that minimise operational cost is a highly iterative and time-intensive process. Because a planner must manually simulate the dynamic interactions between Takt Time, container volumes, and physical path constraints, even minor changes to production variables require a total recalculation of the logistics network.
 
 Without the computational speed of a digital optimisation tool, the planning lead time is significantly prolonged. This delay limits the operation's ability to respond to real-time changes and increases the risk of:
@@ -16,6 +18,7 @@ Without the computational speed of a digital optimisation tool, the planning lea
 - Inventory Imbalance: The challenge of perfectly aligning replenishment cycles with consumption rates, leading to lineside overflows or critical stock-outs.
 
 **Key Objectives**
+
 - Resource Optimisation: Determine the fewest number of drivers/vehicles required to meet the production beat (Takt Time).
 - Synchronised Release: Time the departure of each delivery to prevent "traffic jams" in unidirectional paths.
 - Inventory Minimisation: Maintain the minimum stock at both the warehouse and the lineside to support continuous flow.
