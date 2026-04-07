@@ -1,4 +1,4 @@
-# Digitising JIT Resource Planning & Routing Optimisation# - Detailed Case Study
+# Digitising JIT Resource Planning & Routing Optimisation - Detailed Case Study
 
 **Role: Group Head - Logistics Planning Group**
 
