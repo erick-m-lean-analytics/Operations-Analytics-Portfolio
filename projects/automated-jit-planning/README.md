@@ -37,7 +37,7 @@ Defined the logical "From-To" connections between nodes to mathematically enforc
   
 **1.4 Pathfinding & Distance Matrix Generation:** Implemented Dijkstra’s Algorithm to calculate the absolute shortest legal path between every node pair. The result is an N \times N Distance Matrix that serves as the primary input for the optimisation solver.
   - Script: [`master_distance_matrix.py`](./module/master_distance_matrix.py) 
-  - Output: From_To_distance_matrix.csv [`Distance_Matrix.csv`](./output/From_To_Distance_Matrix_Meters.csv) 
+  - Output: [`Distance_Matrix.csv`](./output/From_To_Distance_Matrix_Meters.csv) 
 
 
 ### 2. Workload Modelling & Service Standards (Gentan-i)
