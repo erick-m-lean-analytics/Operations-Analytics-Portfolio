@@ -67,7 +67,7 @@ Developed a grouping algorithm that aggregates individual deliveries into unifie
   - Geographical Clustering: Grouping tasks by shared Lineside_Group to eliminate redundant travel "Muda."
   - Unified Path Physics: Identifying the furthest node in a bundle to calculate a single, accurate round-trip duration, preventing the "double-counting" of distances common in manual planning.
   - Pull-System: Enforcing a "No Duplicate Parts" constraint per trip to respect limited rack footprints at the workstations (avoid inventory waste).
-  - Script: [`delivery_bundling.py`](./module/delivery_bundling.py) 
+  - Script: [`delivery_bundling.py`](./module/delivery_bundling_with_resourcecalc.py) 
   - Output: [`MIlk_Run_Delivery_Groups.csv`](./output/Milk_Run_Delivery_Groups.csv)
 
   **3.2 Quantified Resource Reduction:**
