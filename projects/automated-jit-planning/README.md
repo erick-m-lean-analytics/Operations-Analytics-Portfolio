@@ -67,7 +67,8 @@ Optimised the delivery sequence by intelligently bundling tasks. The algorithm p
   - Script: [`delivery_bundling.py`](./module/delivery_bundling.py) 
   - Output: [`MIlk_Run_Delivery_Groups.csv`](./output/Milk_Run_Delivery_Groups.csv)
 
-[!TIP]**Key Result:** This optimisation step demonstrated a 40% reduction in required resources compared to manual planning, fulfilling the same production demand with 3 drivers/tow-trucks instead of 5.
+[!TIP]
+**Key Result:** This optimisation step demonstrated a 40% reduction in required resources compared to manual planning, fulfilling the same production demand with 3 drivers/tow-trucks instead of 5.
   - Total Workload: 70,079.86 seconds
   - Resource Requirement: 2.60 Tuggers/Drivers (40% reduction from manual planning)
   - Resource Utilisation: 2.60/ 3.0 = 86%
