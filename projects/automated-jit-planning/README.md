@@ -48,11 +48,11 @@ To determine the optimal fleet size (drivers and tow-tractors), I calculated the
 2.1 Service Time Standardisation: Mapped SKU-specific container types (Dunnage, Regular Dollies, and Custom Dollies) to their respective Standard Unloading/Loading Times. 
   - Logic Applied: Integrated the Gentan-i (standard time per unit of work) for vehicle travel speed, calibrated at 1.6s/m.
   - Scope: Focused on a specific vehicle-model segment within a Mixed-Model Production System to simulate high-complexity delivery requirements.
-  - Output: [`Demand.csv`](./output/Demand.csv) 
+  - Output: [`Demand.csv`](./data/Demand.csv) 
 
 2.2 Workload Explosion: Generated a comprehensive task list by intersecting the delivery frequencies (10, 50, 100-min cycles) with standardised service times and required trip counts. This "exploded" the data into individual work elements including travel times, service durations, and specific routes, to calculate the total required man-seconds.
   - Script: [`delivery_tasks_list.py`](./module/delivery_tasks_list.py) 
-  - Output: [`Exploded_Task_List.csv`](./output/EXploded_Tasks_Verification.csv) 
+  - Output: [`Exploded_Task_List.csv`](./output/Exploded_Tasks_Verification.csv) 
 
 2.3 Spatial Validation: Cross-referenced all generated delivery routes and calculated travel times against the digital graph to ensure 100% alignment with physical aisle constraints.
   - Compare: [`Factory graph visualisation`](./output/factory_floor_layout_cartesian.png)  vs [`Exploded_Task_List.csv`](./output/EXploded_Tasks_Verification.csv) 
