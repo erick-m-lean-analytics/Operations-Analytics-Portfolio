@@ -14,7 +14,7 @@ In high-volume JIT environments, designing synchronised routes that minimise ope
 ### 1. Digital Geography & Pathing Logic
 To digitise the physical environment, I translated the plant’s CAD layout into a structured coordinate system, forming the spatial foundation of the routing engine.
 
-1.1  Spatial Node Mapping: Extracted (x, y) coordinates from the plant layout to define critical nodes, including the Warehouse (Depot), Line-side Delivery Stations, and Transit Points.
+**1.1  Spatial Node Mapping:** Extracted (x, y) coordinates from the plant layout to define critical nodes, including the Warehouse (Depot), Line-side Delivery Stations, and Transit Points.
 
 To maintain high-fidelity with the physical shop floor, the following Node Classification was used:
 
@@ -26,18 +26,18 @@ Bulky_1 - Bulky parts staging area No.1/No.2,  I_17 - Intersection No.17
 
   - Data Sources: [`Node_coordinates.csv`](./data/Node_coordinates.csv) [`Plant CAD layout.png`](./data/Factory_CAD_layout.png) 
 
-1.2  Directed Edge Construction: 
+**1.2  Directed Edge Construction:** 
 Defined the logical "From-To" connections between nodes to mathematically enforce the physical flow of the facility. By utilising Directed Edges, I ensured the routing engine strictly respects one-way aisle constraints and prevents illegal "backward" movements.
 
   - Data Source: [`From_To.csv`](./data/From_To.csv) 
   
-1.3  Graph Visualisation: Utilised the NetworkX library to build a Directed Graph (DiGraph) of the factory floor. This allowed for visual verification of edge weights (distances) and flow directionality.
+**1.3  Graph Visualisation:** Utilised the NetworkX library to build a Directed Graph (DiGraph) of the factory floor. This allowed for visual verification of edge weights (distances) and flow directionality.
   - Script: [`factory_floor_layout.py`](./module/factory_floor_layout.py) 
   - Output: [`Factory graph visualisation`](./output/factory_floor_layout_cartesian.png) 
   
-1.4 Pathfinding & Distance Matrix Generation: Implemented Dijkstra’s Algorithm to calculate the absolute shortest legal path between every node pair. The result is an N \times N Distance Matrix that serves as the primary input for the optimisation solver.
+**1.4 Pathfinding & Distance Matrix Generation:** Implemented Dijkstra’s Algorithm to calculate the absolute shortest legal path between every node pair. The result is an N \times N Distance Matrix that serves as the primary input for the optimisation solver.
   - Script: [`master_distance_matrix.py`](./module/master_distance_matrix.py) 
-  - Output: From_To_distance_matrix.csv
+  - Output: From_To_distance_matrix.csv [`Distance_Matrix.csv`](./output/From_To_Distance_Matrix_Meters.csv) 
 
 
 ### 2. Workload Modelling & Service Standards (Gentan-i)
