@@ -15,10 +15,6 @@ In high-volume JIT environments, designing synchronised routes that minimise ope
 To digitise the physical environment, I translated the plant’s CAD layout into a structured coordinate system, forming the spatial foundation of the routing engine.
 
 1.1 Spatial Node Mapping: Extracted (x, y) coordinates from the plant layout to define critical nodes, including the Warehouse (Depot), Line-side Delivery Stations, and Transit Points.
-  - Data Source: [`Node_coordinates.csv`](./data/Node_coordinates.csv) [`Plant CAD layout`](./data/Factory_CAD_layout.png) 
-
-1.2 Directed Edge Construction: 
-Defined the logical "From-To" connections between nodes to mathematically enforce the physical flow of the facility. By utilising Directed Edges, I ensured the routing engine strictly respects one-way aisle constraints and prevents illegal "backward" movements.
 
 To maintain high-fidelity with the physical shop floor, the following Node Classification was used:
 
@@ -26,6 +22,12 @@ Code - Description:
 
 TR/TL - TrimLine Station (Right/Left Handside),  C - Chassis Line Station,  F - Final Line Station,  EG - Engine Line Station,  AC_B - Aircon Building,  T0 - Trim zero (Start of Assembly Line),  SML_Dr - Small parts drop off point,  SML_St - Small parts delivery staging area,  
 Bulky_1 - Bulky parts staging area No.1/No.2,  I_17 - Intersection No.17
+
+
+  - Data Source: [`Node_coordinates.csv`](./data/Node_coordinates.csv) [`Plant CAD layout`](./data/Factory_CAD_layout.png) 
+
+1.2 Directed Edge Construction: 
+Defined the logical "From-To" connections between nodes to mathematically enforce the physical flow of the facility. By utilising Directed Edges, I ensured the routing engine strictly respects one-way aisle constraints and prevents illegal "backward" movements.
 
   - Data Source: [`From_To.csv`](./data/From_To.csv) 
   
