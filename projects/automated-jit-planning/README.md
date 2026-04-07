@@ -45,21 +45,30 @@ Defined the logical "From-To" connections between nodes to mathematically enforc
 
 To determine the optimal fleet size (drivers and tow-tractors), I calculated the precise Work Content for every delivery cycle. This phase translated physical handling constraints into high-fidelity time standards.
 
-2.1 Service Time Standardisation: Mapped SKU-specific container types (Dunnage, Regular Dollies, and Custom Dollies) to their respective Standard Unloading/Loading Times. 
+**2.1 Service Time Standardisation:** 
+Mapped SKU-specific container types (Dunnage, Regular Dollies, and Custom Dollies) to their respective Standard Unloading/Loading Times. 
   - Logic Applied: Integrated the Gentan-i (standard time per unit of work) for vehicle travel speed, calibrated at 1.6s/m.
   - Scope: Focused on a specific vehicle-model segment within a Mixed-Model Production System to simulate high-complexity delivery requirements.
   - Output: [`Demand.csv`](./data/Demand.csv) 
 
-2.2 Workload Explosion: Generated a comprehensive task list by intersecting the delivery frequencies (10, 50, 100-min cycles) with standardised service times and required trip counts. This "exploded" the data into individual work elements including travel times, service durations, and specific routes, to calculate the total required man-seconds.
+**2.2 Workload Explosion:** 
+Generated a comprehensive task list by intersecting the delivery frequencies (10, 50, 100-min cycles) with standardised service times and required trip counts. This "exploded" the data into individual work elements including travel times, service durations, and specific routes, to calculate the total required man-seconds.
   - Script: [`delivery_tasks_list.py`](./module/delivery_tasks_list.py) 
   - Output: [`Exploded_Task_List.csv`](./output/Exploded_Tasks_Verification.csv) 
 
-2.3 Spatial Validation: Cross-referenced all generated delivery routes and calculated travel times against the digital graph to ensure 100% alignment with physical aisle constraints.
+**2.3 Spatial Validation:** Cross-referenced all generated delivery routes and calculated travel times against the digital graph to ensure 100% alignment with physical aisle constraints.
   - Compare: [`Factory graph visualisation`](./output/factory_floor_layout_cartesian.png)  vs [`Exploded_Task_List.csv`](./output/EXploded_Tasks_Verification.csv) 
     
-2.4 Task Bundling & Consolidation: Optimised the delivery sequence by bundling tasks based on three critical constraints: Shared delivery locations, Tow-tractor payload capacity, and Line-side footprint limitations.
+**2.4 Task Bundling & Consolidation:** 
+Optimised the delivery sequence by intelligently bundling tasks. The algorithm prioritised the Shortest Path while strictly adhering to three critical operational constraints:
+  - Geographical Clustering: Grouping tasks by shared delivery zones to minimise travel "Muda" (waste).
+  - Payload Capacity: Ensuring the total volume/weight per trip does not exceed the Tow-tractor’s limit.
+  - Line-side Footprint: Respecting the physical storage limits at each workstation to prevent aisle congestion.
   - Script: [`delivery_bundling.py`](./module/delivery_bundling.py) 
-  - Output: [`MIlk_Run_Delivery_Groups.csv`](./output/Milk_Run_Delivery_Groups.csv) 
+  - Output: [`MIlk_Run_Delivery_Groups.csv`](./output/Milk_Run_Delivery_Groups.csv)
+
+**Key Result:** This optimisation step demonstrated a 40% reduction in required resources compared to manual planning, fulfilling the same production demand with 3 drivers/tow-trucks instead of 5.
+
 
 
 ### 3. Constraint-Based Routing Optimisation (CVRP)
