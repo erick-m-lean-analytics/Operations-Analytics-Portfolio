@@ -23,9 +23,9 @@ To digitise the physical environment, I translated the plant’s CAD layout into
   TR/TL - TrimLine Station (Right/Left Handside),  C - Chassis Line Station,  F - Final Line Station,  EG - Engine Line Station,  AC_B - Aircon Building,  T0 - Trim zero (Start of Assembly Line),  SML_Dr - Small parts drop off point,  SML_St - Small parts delivery staging area,  
 Bulky_1 - Bulky parts staging area No.1/No.2,  I_17 - Intersection No.17
 
-
-  - Data Source: [`Node_coordinates.csv`](./data/Node_coordinates.csv)
-  - Visual: [`Plant CAD layout.png`](./data/Factory_CAD_layout.png) 
+  - Source Visual: [`Plant CAD layout.png`](./data/Factory_CAD_layout.png) 
+  - Output: [`Node_coordinates.csv`](./data/Node_coordinates.csv)
+ 
 
   **1.2  Directed Edge Construction:** 
 Defined the logical "From-To" connections between nodes to mathematically enforce the physical flow of the facility. By utilising Directed Edges, I ensured the routing engine strictly respects one-way aisle constraints and prevents illegal "backward" movements.
