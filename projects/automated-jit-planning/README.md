@@ -1,10 +1,10 @@
-# Digitising JIT Resource Planning & Routing Optimisation#
+# Digitising JIT Resource Planning & Routing Optimisation# - Detailed Case Study
 
-**Role: Industrial Engineer / Logistics Operations Architect**
+**Role: Group Head - Logistics Planning Group**
 
-Project Type: Micro-Logistics Optimization & Resource Planning
+Project Type: Micro-Logistics Optimisation & Resource Planning
 
-## Project Overview##
+## Project Overview
 This project digitises the complex manual engineering planning process used for Just-In-Time (JIT) parts delivery in high-precision manufacturing. By translating Toyota-style Industrial Engineering (IE) logic into a Python-based optimisation engine, I developed a tool that determines the optimal fleet size and generates precise delivery schedules to maintain synchronised flow.
 
 ## Problem Statement: The Simulation Bottleneck
@@ -12,11 +12,27 @@ In high-volume JIT environments, designing synchronised routes that minimise ope
 
 ## Methodology
 ### 1. Digital Geography & Pathing Logic
-Mapped the physical shop floor into a mathematical Distance Matrix. Applied a constant speed of 1.6s/m to convert spatial distance into travel time. Implemented a "Big M" Penalty logic to strictly enforce one-way aisle constraints, ensuring the digital model respects the physical flow of the plant.
+To digitise the physical environment, I translated the plant’s CAD layout into a structured coordinate system, forming the spatial foundation of the routing engine.
+1.1 Spatial Node Mapping: Extracted $(x, y)$ coordinates from the plant layout to define critical nodes, including the Warehouse (Depot), Line-side Delivery Stations, and Transit Points.
+  - Data Source: Nodes_coordinates.csv
 
-Key Python script:
+1.2 Directed Edge Construction: Defined the logical connections between nodes to reflect the physical flow of the facility. This step is where one-way aisle constraints were mathematically enforced by creating directed paths that prevent illegal "backward" movements.
+  - Data Source: From_To_Edges.csv
+  
+1.3 Graph Visualisation: Utilised the NetworkX library to build a Directed Graph (DiGraph) of the factory floor. This allowed for visual verification of edge weights (distances) and flow directionality.
+  - Script: factory_floor_layout.py
+  
+1.4 Pathfinding & Distance Matrix Generation: Implemented Dijkstra’s Algorithm to calculate the absolute shortest legal path between every node pair. The result is an $N \times N$ Distance Matrix that serves as the primary input for the optimization solver.
+  - Script: routing_distance_matrix.py
+  - Output: From_To_distance_matrix.csv
 
-step1_geography.py – matrix generation & one-way logic
+
+
+1.1 Using the plant CAD layout, mapped the physical shop floor into nodes through their x,y coordinates: parts' delivery staging locations and delivery locations at the assembly line - filename: Nodes_coordinates.csv
+1.2 Construct the node relationships or connections to ensure the digital model respects the physical flow of the plant and to enforce one-way aisle constraints - filename: From_To.csv
+1.3 Plotted them into a graph visualisation using NetworkX (directed graphs with edge weights/distance). - script: factory_floor_layout.py
+1.4 Used the 'Dijkstra' algorithm to find the shortest route between two nodes. script: routing_distance.py output: From_To_distnce_matrix.csv
+
 
 ### 2. Workload & Service Standards Mapping
 Designed a systematic approach to define the "Work Content" of each delivery. Mapped SKU container types (Crates, Dollies, Single-piece) to their respective Standard Unloading Times. Used Pandas to aggregate these standards into a station-level workload dataset.
