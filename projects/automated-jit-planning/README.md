@@ -36,7 +36,7 @@ Defined the logical "From-To" connections between nodes to mathematically enforc
   - Script: [`factory_floor_layout.py`](./module/factory_floor_layout.py) 
   - Output: [`Factory graph visualisation`](./output/factory_floor_layout_cartesian.png) 
   
-  **1.4 Pathfinding & Distance Matrix Generation:** Implemented Dijkstra’s Algorithm to calculate the absolute shortest legal path between every node pair. The result is an N \times N Distance Matrix that serves as the primary input for the optimisation solver.
+  **1.4 Pathfinding & Distance Matrix Generation:** Implemented Dijkstra’s Algorithm to calculate the absolute shortest legal path between every node pair. The result is an N x N Distance Matrix that serves as the primary input for the optimisation solver.
   - Script: [`master_distance_matrix.py`](./module/master_distance_matrix.py) 
   - Output: [`Distance_Matrix.csv`](./output/From_To_Distance_Matrix_Meters.csv) 
 
@@ -74,7 +74,8 @@ Developed a grouping algorithm that aggregates individual deliveries into unifie
 By aggregating the total required man-seconds (Travel + Service) across the 450-minute shift, the engine mathematically determined the minimum required fleet size.
 
 > [!IMPORTANT]
-> Key Result: 40% Efficiency Gain
+> **Key Result: 40% Efficiency Gain**
+
 The optimisation engine proved that the plant's production demand could be met with 3 drivers/tuggers instead of the 5 previously required by manual planning.
   - Total Work Content: 70,079.86 Seconds
   - Theoretical Headcount: 2.60 Drivers
