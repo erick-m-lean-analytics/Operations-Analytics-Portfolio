@@ -32,8 +32,8 @@ Defined the logical "From-To" connections between nodes to mathematically enforc
   - Data Source: [`From_To.csv`](./data/From_To.csv) 
   
 1.3 Graph Visualisation: Utilised the NetworkX library to build a Directed Graph (DiGraph) of the factory floor. This allowed for visual verification of edge weights (distances) and flow directionality.
-  - Script: [`factory_floor_layout.py`](./module/factory_floor_layout_cartesian.py) 
-  - Output: [`Factory graph visualisation`](./module/factory_floor_layout_cartesian.png) 
+  - Script: [`factory_floor_layout.py`](./module/factory_floor_layout.py) 
+  - Output: [`Factory graph visualisation`](./output/factory_floor_layout_cartesian.png) 
   
 1.4 Pathfinding & Distance Matrix Generation: Implemented Dijkstra’s Algorithm to calculate the absolute shortest legal path between every node pair. The result is an N \times N Distance Matrix that serves as the primary input for the optimisation solver.
   - Script: [`master_distance_matrix.py`](./module/master_distance_matrix.py) 
