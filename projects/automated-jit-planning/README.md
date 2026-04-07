@@ -16,6 +16,7 @@ To digitise the physical environment, I translated the plant’s CAD layout into
 
 1.1 Spatial Node Mapping: Extracted (x, y) coordinates from the plant layout to define critical nodes, including the Warehouse (Depot), Line-side Delivery Stations, and Transit Points.
   - Data Source: Nodes_coordinates.csv
+  -  [`Node_coordinates.csv`](./data/Node_coordinates.csv) 
 
 1.2 Directed Edge Construction: Defined the logical connections between nodes to reflect the physical flow of the facility. This step is where one-way aisle constraints were mathematically enforced by creating directed paths that prevent illegal "backward" movements.
   - Data Source: From_To_Edges.csv
