@@ -1,4 +1,4 @@
-# Digitising JIT Resource Planning & Routing Optimisation - Detailed Case Study
+# Automated JIT Logistics & Routing Optimisation - Detailed Case Study
 
 **Role: Group Head - Logistics Planning Group**
 
@@ -24,7 +24,8 @@ TR/TL - TrimLine Station (Right/Left Handside),  C - Chassis Line Station,  F - 
 Bulky_1 - Bulky parts staging area No.1/No.2,  I_17 - Intersection No.17
 
 
-  - Data Sources: [`Node_coordinates.csv`](./data/Node_coordinates.csv) [`Plant CAD layout.png`](./data/Factory_CAD_layout.png) 
+  - Data Source: [`Node_coordinates.csv`](./data/Node_coordinates.csv)
+  - Visual: [`Plant CAD layout.png`](./data/Factory_CAD_layout.png) 
 
 **1.2  Directed Edge Construction:** 
 Defined the logical "From-To" connections between nodes to mathematically enforce the physical flow of the facility. By utilising Directed Edges, I ensured the routing engine strictly respects one-way aisle constraints and prevents illegal "backward" movements.
@@ -47,18 +48,18 @@ To determine the optimal fleet size (drivers and tow-tractors), I calculated the
 2.1 Service Time Standardisation: Mapped SKU-specific container types (Dunnage, Regular Dollies, and Custom Dollies) to their respective Standard Unloading/Loading Times. 
   - Logic Applied: Integrated the Gentan-i (standard time per unit of work) for vehicle travel speed, calibrated at 1.6s/m.
   - Scope: Focused on a specific vehicle-model segment within a Mixed-Model Production System to simulate high-complexity delivery requirements.
-  - Output: Demand_Standards.csv
+  - Output: [`Demand.csv`](./output/Demand.csv) 
 
 2.2 Workload Explosion: Generated a comprehensive task list by intersecting the delivery frequencies (10, 50, 100-min cycles) with standardised service times and required trip counts. This "exploded" the data into individual work elements including travel times, service durations, and specific routes, to calculate the total required man-seconds.
-  - Script: delivery_task_list.py
-  - Output: Exploded_Tasks_List.csv
+  - Script: [`delivery_tasks_list.py`](./module/delivery_tasks_list.py) 
+  - Output: [`Exploded_Task_List.csv`](./output/EXploded_Tasks_Verification.csv) 
 
 2.3 Spatial Validation: Cross-referenced all generated delivery routes and calculated travel times against the digital graph to ensure 100% alignment with physical aisle constraints.
-  - Visual: factory_layout.png
+  - Compare: [`Factory graph visualisation`](./output/factory_floor_layout_cartesian.png)  vs [`Exploded_Task_List.csv`](./output/EXploded_Tasks_Verification.csv) 
     
 2.4 Task Bundling & Consolidation: Optimised the delivery sequence by bundling tasks based on three critical constraints: Shared delivery locations, Tow-tractor payload capacity, and Line-side footprint limitations.
-  - Script: delivery_bundling.py
-  - Output: Milk_run_delivery_groups.csv
+  - Script: [`delivery_bundling.py`](./module/delivery_bundling.py) 
+  - Output: [`MIlk_Run_Delivery_Groups.csv`](./output/Milk_Run_Delivery_Groups.csv) 
 
 
 ### 3. Constraint-Based Routing Optimisation (CVRP)
