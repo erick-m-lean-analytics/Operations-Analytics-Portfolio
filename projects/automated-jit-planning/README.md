@@ -59,32 +59,31 @@ Generated a comprehensive task list by intersecting the delivery frequencies (10
 **2.3 Spatial Validation:** Cross-referenced all generated delivery routes and calculated travel times against the digital graph to ensure 100% alignment with physical aisle constraints.
   - Compare: [`Factory graph visualisation`](./output/factory_floor_layout_cartesian.png)  vs [`Exploded_Task_List.csv`](./output/EXploded_Tasks_Verification.csv) 
     
-**2.4 Task Bundling & Consolidation:** 
-Optimised the delivery sequence by intelligently bundling tasks. The algorithm prioritised the Shortest Path while strictly adhering to three critical operational constraints:
-  - Geographical Clustering: Grouping tasks by shared delivery zones to minimise travel "Muda" (waste).
-  - Payload Capacity: Ensuring the total volume/weight per trip does not exceed the Tow-tractor’s limit.
-  - Line-side Footprint: Respecting the physical storage limits at each workstation to prevent aisle congestion.
+### 3. Constraint-Based Routing Optimisation (CVRP)
+Utilised a Standardised 3-Slot Batch Constraint to aggregate the exploded task list into synchronised Milk Run trips. This stage focused on maximising tugger utilisation while respecting physical line-side space and equipment payload limits.
+
+**3.1 Intelligent Trip Bundling:**
+Developed a grouping algorithm that aggregates individual deliveries into unified trips based on:
+  - Geographical Clustering: Grouping tasks by shared Lineside_Group to eliminate redundant travel "Muda."
+  - Unified Path Physics: Identifying the furthest node in a bundle to calculate a single, accurate round-trip duration, preventing the "double-counting" of distances common in manual planning.
+  - Pull-System: Enforcing a "No Duplicate Parts" constraint per trip to respect limited rack footprints at the workstations (avoid inventory waste).
   - Script: [`delivery_bundling.py`](./module/delivery_bundling.py) 
   - Output: [`MIlk_Run_Delivery_Groups.csv`](./output/Milk_Run_Delivery_Groups.csv)
 
+**3.2 Quantified Resource Reduction:**
+By aggregating the total required man-seconds (Travel + Service) across the 450-minute shift, the engine mathematically determined the minimum required fleet size.
+
 > [!IMPORTANT]
-> **Key Result:** This optimisation step demonstrated a 40% reduction in required resources compared to manual planning, fulfilling the same production demand with 3 drivers/tow-tractors instead of 5.
-  - Total Workload: 70,079.86 seconds
-  - Resource Requirement: 2.60 Tow-tractors/Drivers (40% reduction from manual planning)
-  - Resource Utilisation: 2.60/ 3.0 = 86%
-
-
-### 3. Constraint-Based Routing Optimisation (CVRP)
-Applied the Capacitated Vehicle Routing Problem (CVRP) model using Google OR-Tools. The "Capacity" was defined as Time; the solver was constrained to ensure the sum of Travel Time and Service Time never exceeded the Takt Time (600s). This automatically determined the minimum number of vehicles required for the loop.
-
-### 4. Verification & Sensitivity Analysis
-Consolidated the modular steps into an integrated pipeline to perform "What-If" simulations. Tested the impact of Takt Time fluctuations and speed variability on fleet requirements. Generated Gantt charts to verify Synchronised Release, ensuring no two vehicles occupy the same one-way aisle simultaneously.
+> Key Result: 40% Efficiency Gain
+The optimization engine proved that the plant's production demand could be met with 3 drivers/tuggers instead of the 5 previously required by manual planning.
+  - Total Work Content: 70,079.86 Seconds
+  - Theoretical Headcount: 2.60 Drivers
+  - Actual Requirement: 3 Drivers (Operating at 86% utilization)
 
 ## Tech Stack
 - Python: Core logic and automation
 - NetworkX: Logistics visualisation
 - Pandas/NumPy: Data manipulation and matrix mathematics
-
 
 ## Skills Demonstrated
 - Translation of Industrial Engineering (TPS) principles into algorithmic constraints
