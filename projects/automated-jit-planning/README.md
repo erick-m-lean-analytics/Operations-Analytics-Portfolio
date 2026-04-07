@@ -21,17 +21,29 @@ To digitise the physical environment, I translated the plant’s CAD layout into
 Defined the logical "From-To" connections between nodes to mathematically enforce the physical flow of the facility. By utilising Directed Edges, I ensured the routing engine strictly respects one-way aisle constraints and prevents illegal "backward" movements.
 
 To maintain high-fidelity with the physical shop floor, the following Node Classification was used:
+
 Code - Description: 
+
 TR/TL - TrimLine Station (Right/Left Handside)
+
 C - Chassis Line Station
+
 F - Final Line Station
+
 EG - Engine Line Station
+
 AC_B - Aircon Building
+
 T0 - Trim zero (Start of Assembly Line)
+
 SML_Dr - Small parts drop off point
+
 SML_St - Small parts delivery staging area
+
 Bulky_1 - Bulky parts staging area No.1/No.2
+
 I_17 - Intersection No.17
+
 
   - Data Source: From_To.csv [`From_To.csv`](./data/From_To.csv) 
   
