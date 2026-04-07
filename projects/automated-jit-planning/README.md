@@ -30,7 +30,7 @@ Bulky_1 - Bulky parts staging area No.1/No.2,  I_17 - Intersection No.17
   **1.2  Directed Edge Construction:** 
 Defined the logical "From-To" connections between nodes to mathematically enforce the physical flow of the facility. By utilising Directed Edges, I ensured the routing engine strictly respects one-way aisle constraints and prevents illegal "backward" movements.
 
-  - Data Source: [`From_To.csv`](./data/From_To.csv) 
+  - Output: [`From_To.csv`](./data/From_To.csv) 
   
   **1.3  Graph Visualisation:** Utilised the NetworkX library to build a Directed Graph (DiGraph) of the factory floor. This allowed for visual verification of edge weights (distances) and flow directionality.
   - Script: [`factory_floor_layout.py`](./module/factory_floor_layout.py) 
