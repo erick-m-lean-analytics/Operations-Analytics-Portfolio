@@ -5,7 +5,7 @@
 Project Type: Micro-Logistics Optimisation & Resource Planning
 
 ## Project Overview
-This project digitises the complex manual engineering planning process used for Just-In-Time (JIT) parts delivery in high-precision manufacturing. By translating Toyota-style Industrial Engineering (IE) logic into a Python-based optimisation engine, I developed a tool that determines the optimal fleet size and generates precise delivery schedules to maintain synchronised flow.
+This project digitises the complex manual engineering planning process used for Just-In-Time (JIT) parts delivery in high-precision manufacturing. By translating Toyota-style Industrial Engineering (IE) logic into a Python-based optimisation engine, I developed a tool that determines minimum lead times, optimises fleet size, and generates precise delivery schedules to maintain a synchronised flow while preventing traffic congestion.
 
 ## Problem Statement: The Operational Planning Bottleneck
 In high-volume JIT environments, designing synchronised routes that minimise operational cost is an iterative and time-intensive process. Because a planner must manually simulate the dynamic interactions between Takt Time, container volumes, and physical path constraints, even minor changes to production variables require a total recalculation. Without the speed of a digital tool, the planning lead time is significantly prolonged, especially as the logistics network grows in complexity.
@@ -27,12 +27,12 @@ Bulky_1 - Bulky parts staging area No.1/No.2,  I_17 - Intersection No.17
   - Output: [`Node_coordinates.csv`](./data/Node_coordinates.csv)
  
 
-  **1.2  Directed Edge (path) Construction:** 
+  **1.2  Directed Edge (path) Construction - routing logic:** 
 Defined the logical "From-To" connections between nodes to mathematically enforce the physical flow of the facility. By utilising Directed Edges, I ensured the routing engine strictly respects one-way aisle constraints and prevents illegal "backward" movements.
 
   - Output: [`From_To.csv`](./data/From_To.csv) 
   
-  **1.3  Graph Visualisation:** Utilised the NetworkX library to build a Directed Graph (DiGraph) of the factory floor. This allowed for visual verification of edge weights (distances) and flow directionality.
+  **1.3  Graph Visualisation of the shop-floor layout:** Utilised the NetworkX library to build a Directed Graph (DiGraph) of the factory floor. This allowed for visual verification of edge weights (distances) and flow directionality.
   - Script: [`factory_floor_layout.py`](./module/factory_floor_layout.py) 
   - Output: [`Factory graph visualisation`](./output/factory_floor_layout_cartesian.png) 
   
