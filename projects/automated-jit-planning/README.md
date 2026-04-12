@@ -43,7 +43,10 @@ Defined the logical "From-To" connections between nodes to mathematically enforc
 
   ### 2. Workload Modelling & Service Standards (Gentan-i)
 
-  To determine the optimal fleet size (drivers and tow-tractors), I calculated the precise Work Content for every delivery cycle. This phase translated physical handling constraints into high-fidelity time standards.
+  To determine the optimal fleet size (drivers and tow-tractors) for any given demand, I calculated the precise Work Content for every delivery cycle. This phase translated physical handling constraints into high-fidelity time standards.
+> [!IMPORTANT]
+> This is the step where the input (production demand) can be adjusted for sensitivity analysis before running the subsequent scripts
+>
 
   **2.1 Service Time Standardisation:** 
 Mapped SKU-specific container types (Dunnage, Regular Dollies, and Custom Dollies) to their respective Standard Unloading/Loading Times. 
@@ -95,6 +98,7 @@ The optimisation engine proved that the plant's production demand could be met w
 - Designing industry-agnostic logic applicable to Mining, Warehousing, and Manufacturing
 
 Status: Completed 
+
 **Confidentiality Note:**
 This project utilises the actual planning methodologies and operational flow logic used in Toyota manufacturing facilities. To ensure data privacy, the plant location and specific production models have been anonymised; however, the distances, aisle constraints, and service-time variables represent a verified, functional shop-floor environment.
 
