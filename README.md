@@ -4,7 +4,7 @@
 
 **Project Overview**
 
-This project digitises the complex manual planning process used for Just-In-Time (JIT) parts delivery in high-precision manufacturing. By translating Toyota-style Industrial Engineering (IE) logic into a Python-based optimisation engine, I developed a tool that determines the optimal fleet size and generates precise delivery schedules to maintain synchronised flow.
+This project digitises the complex manual planning process used for Just-In-Time (JIT) parts delivery in high-precision manufacturing. By translating Toyota-style Industrial Engineering (IE) logic into a Python-based optimisation engine, I developed a tool that determines minimum lead times, optimises fleet size, and generates precise delivery schedules to maintain a synchronised flow while preventing traffic congestion.
 
 While modelled on automotive assembly line constraints, specifically the balance between Takt Time and lineside space, the underlying logic is industry-agnostic. It is designed to optimise high-frequency internal micro-logistics: the time-critical delivery cycles required to feed continuous production or extraction processes in mining, large-scale warehousing, and regional supply chains."
 
@@ -13,8 +13,10 @@ While modelled on automotive assembly line constraints, specifically the balance
 In high-volume JIT environments, designing synchronised routes that minimise operational cost is a highly iterative and time-intensive process. Because a planner must manually simulate the dynamic interactions between Takt Time, container volumes, and physical path constraints, even minor changes to production variables require a total recalculation of the logistics network.
 
 Without the computational speed of a digital optimisation tool, the planning lead time is significantly prolonged. This delay limits the operation's ability to respond to real-time changes and increases the risk of:
-- Traffic Congestion: Difficulty in precisely phasing vehicle departures to avoid simultaneous arrivals in unidirectional (one-way) aisles.
-- Inventory Imbalance: The challenge of perfectly aligning replenishment cycles with consumption rates, leading to lineside overflows or critical stock-outs.
+- Delayed production and shipment
+- Operational Chaos:
+   - Traffic Congestion: Difficulty in precisely phasing vehicle departures to avoid simultaneous arrivals in unidirectional (one-way) aisles.
+   - Inventory Imbalance: The challenge of perfectly aligning replenishment cycles with consumption rates, leading to lineside overflows or critical stock-outs.
 
 **Key Objectives**
 
