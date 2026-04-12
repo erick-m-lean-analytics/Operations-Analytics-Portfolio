@@ -52,7 +52,7 @@ Mapped SKU-specific container types (Dunnage, Regular Dollies, and Custom Dollie
   - Output: [`Demand.csv`](./data/Demand.csv) 
 
   **2.2 Workload Explosion:** 
-Generated a comprehensive task list by intersecting the delivery frequencies (10, 50, 100-min cycles) with standardised service times and required trip counts. This "exploded" the data into individual work elements including travel times, service durations, and specific routes, to calculate the total required man-seconds.
+Generated a comprehensive task list by intersecting the delivery frequencies (10, 50, 100-min cycles) with standardised service times and required trip counts. This "exploded" the data into individual work elements, including travel times, service durations, and specific routes, to calculate the total required man-seconds.
   - Script: [`delivery_tasks_list.py`](./module/delivery_tasks_list.py) 
   - Output: [`Exploded_Task_List.csv`](./output/Exploded_Tasks_Verification.csv) 
 
@@ -60,13 +60,15 @@ Generated a comprehensive task list by intersecting the delivery frequencies (10
   - Compare: [`Factory graph visualisation`](./output/factory_floor_layout_cartesian.png)  vs [`Exploded_Task_List.csv`](./output/EXploded_Tasks_Verification.csv) 
     
 ### 3. Constraint-Based Routing Optimisation (CVRP)
-Utilised a Standardised 3-Slot Batch Constraint to aggregate the exploded task list into synchronised Milk Run trips. This stage focused on maximising tugger utilisation while respecting physical line-side space and equipment payload limits.
+Utilised a Standardised 3-Slot Batch Constraint to aggregate the exploded task list into synchronised Milk Run trips. This stage focused on maximising tow tractor utilisation while respecting physical line-side space and equipment payload limits.
 
-  **3.1 Intelligent Trip Bundling:**
+  **3.1 Intelligent Trip Bundling and Levelled deliveries (Heijunka):**
 Developed a grouping algorithm that aggregates individual deliveries into unified trips based on:
   - Geographical Clustering: Grouping tasks by shared Lineside_Group to eliminate redundant travel "Muda."
-  - Unified Path Physics: Identifying the furthest node in a bundle to calculate a single, accurate round-trip duration, preventing the "double-counting" of distances common in manual planning.
-  - Pull-System: Enforcing a "No Duplicate Parts" constraint per trip to respect limited rack footprints at the workstations (avoid inventory waste).
+  - Unified Path Physics: Identifying the furthest node within a bundle to calculate a single, accurate round-trip duration, preventing the "double-counting" of distances common in manual planning.
+  - Pull-System (Levelled production): Enforcing a "No Duplicate Parts" constraint per trip to respect limited rack footprints at workstations and avoid inventory waste.
+  - Traffic Congestion Prevention: Ensuring no simultaneous deliveries occur on the same aisle
+    
   - Script: [`delivery_bundling.py`](./module/delivery_bundling_with_resourcecalc.py) 
   - Output: [`MIlk_Run_Delivery_Groups.csv`](./output/Milk_Run_Delivery_Groups.csv)
 
