@@ -3,8 +3,8 @@ import networkx as nx
 import numpy as np
 
 # Load Data 
-links_path = r"C:\Users\ericm\OneDrive\Documents\Digitising_JIT\From_To.csv"
-coords_path = r"C:\Users\ericm\OneDrive\Documents\Digitising_JIT\Node_coordinates.csv"
+links_path = r"C:\Users\ericm\Documents\Digitising_JIT\From_To.csv"
+coords_path = r"C:\Users\ericm\Documents\Digitising_JIT\Node_coordinates.csv"
 
 df_links = pd.read_csv(links_path)
 df_coords = pd.read_csv(coords_path)
