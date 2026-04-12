@@ -2,7 +2,7 @@ import pandas as pd
 import math
 import os
 
-# --- 0. DYNAMIC SENSITIVITY & CONGESTION INPUTS ---
+# DYNAMIC SENSITIVITY & CONGESTION INPUTS
 TOTAL_SHIFT_MIN = 450 
 CAPACITY_LIMIT = 0.95 
 MAX_WORK_MIN = TOTAL_SHIFT_MIN * CAPACITY_LIMIT # 427.5 mins
@@ -17,14 +17,14 @@ aisle_conflict_map = {
     'Trim Zero': 'INDEPENDENT'
 }
 
-# --- 1. Load Data ---
-base_p = r"C:\Users\ErickMortera\OneDrive - PartsCheck Pty Ltd\Documents\Portfolio\Digitising_JIT\Module_2_Capacity"
+# Load Data
+base_p = r"C:\Users\ErickMortera\Digitising_JIT\Module_2_Capacity"
 input_p = os.path.join(base_p, "Exploded_Tasks_Verification.csv")
 output_p = os.path.join(base_p, "Milk_Run_Delivery_Groups_levelled.csv")
 
 df = pd.read_csv(input_p)
 
-# --- 2. Step: Bundle & Level ---
+# Bundle & Level ---
 all_trips = []
 trip_counter = 1
 
@@ -69,14 +69,14 @@ for group_name, group_data in df.groupby('Lineside_Group', observed=False):
 
 temp_df = pd.DataFrame(all_trips)
 
-# --- 3. Step: DYNAMIC TAKT CALCULATION ---
+# DYNAMIC TAKT CALCULATION
 # Total Warehouse Heartbeat = Available Time / Total Trips Needed
 total_trips_needed = len(temp_df)
 # We floor the takt to ensure we are always ahead of the line consumption
 calc_takt = math.floor(TOTAL_SHIFT_MIN / total_trips_needed) if total_trips_needed > 0 else 10
 TAKT_MIN = max(2, min(15, calc_takt)) # Safety buffer: No faster than 2m, no slower than 15m
 
-# --- 4. Step: DETERMINISTIC TRIP-LEVEL BALANCING ---
+# DETERMINISTIC TRIP-LEVEL BALANCING
 zone_order = temp_df.groupby('Lineside_Group', observed=False)['Duration_Min'].sum().sort_values(ascending=False).index
 temp_df['Lineside_Group'] = pd.Categorical(temp_df['Lineside_Group'], categories=zone_order, ordered=True)
 temp_df = temp_df.sort_values(['Lineside_Group', 'Trip_ID'])
@@ -94,7 +94,7 @@ for mins in temp_df['Duration_Min']:
 
 temp_df['Assigned_Driver'] = assigned_drivers
 
-# --- 5. Step: CONGESTION-AWARE DE-CONFLICTION ---
+# CONGESTION-AWARE DE-CONFLICTION
 temp_df['Aisle_ID'] = temp_df['Lineside_Group'].map(aisle_conflict_map).fillna('INDEPENDENT')
 temp_df['Raw_Offset'] = temp_df.groupby(['Lineside_Group', 'Primary_Part'], observed=False).cumcount() * temp_df['Part_Interval_Min']
 # Snap delivery to the nearest calculated Takt Pulse
@@ -126,7 +126,7 @@ def resolve_all_conflicts(df, takt):
 
 temp_df = resolve_all_conflicts(temp_df, TAKT_MIN)
 
-# --- 6. Export & Summary ---
+# Export & Summary
 cols = ['Trip_ID', 'Assigned_Driver', 'Lineside_Group', 'Aisle_ID', 'Primary_Part', 'DEL_QTY', 
         'Start_Offset_Min', 'Duration_Min', 'Parts_Delivered', 'Outbound_Path', 'Return_Path']
 
