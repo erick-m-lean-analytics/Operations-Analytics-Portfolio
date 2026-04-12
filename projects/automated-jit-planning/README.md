@@ -27,7 +27,7 @@ Bulky_1 - Bulky parts staging area No.1/No.2,  I_17 - Intersection No.17
   - Output: [`Node_coordinates.csv`](./data/Node_coordinates.csv)
  
 
-  **1.2  Directed Edge Construction:** 
+  **1.2  Directed Edge (path) Construction:** 
 Defined the logical "From-To" connections between nodes to mathematically enforce the physical flow of the facility. By utilising Directed Edges, I ensured the routing engine strictly respects one-way aisle constraints and prevents illegal "backward" movements.
 
   - Output: [`From_To.csv`](./data/From_To.csv) 
@@ -36,7 +36,7 @@ Defined the logical "From-To" connections between nodes to mathematically enforc
   - Script: [`factory_floor_layout.py`](./module/factory_floor_layout.py) 
   - Output: [`Factory graph visualisation`](./output/factory_floor_layout_cartesian.png) 
   
-  **1.4 Pathfinding & Distance Matrix Generation:** Implemented Dijkstra’s Algorithm to calculate the absolute shortest legal path between every node pair. The result is an N x N Distance Matrix that serves as the primary input for the optimisation solver.
+  **1.4 Distance Matrix Generation & Finding the shortest path between nodes:** Implemented Dijkstra’s Algorithm to **calculate the absolute shortest legal path** between every node pair. The result is an N x N Distance Matrix that serves as the primary input for the optimisation solver.
   - Script: [`master_distance_matrix.py`](./module/master_distance_matrix.py) 
   - Output: [`Distance_Matrix.csv`](./output/From_To_Distance_Matrix_Meters.csv) 
 
