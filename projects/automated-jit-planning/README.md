@@ -55,7 +55,7 @@ Mapped SKU-specific container types (Dunnage, Regular Dollies, and Custom Dollie
   - Output: [`Demand.csv`](./data/Demand.csv) 
 
   **2.2 Workload Explosion:** 
-Generated a comprehensive task list by intersecting the delivery frequencies (10, 50, 100-min cycles) with standardised service times and required trip counts. This "exploded" the data into individual work elements, including travel times, service durations, and specific routes, to calculate the total required man-seconds.
+Generated a comprehensive task list by intersecting the delivery frequencies (i.e. 10, 50, 100-min cycles for the current Takt time) with standardised service times and required trip counts. This "exploded" the data into individual work elements, including travel times, service durations, and specific routes, to calculate the total required man-seconds.
   - Script: [`delivery_tasks_list.py`](./module/delivery_tasks_list.py) 
   - Output: [`Exploded_Task_List.csv`](./output/Exploded_Tasks_Verification.csv) 
 
