@@ -72,7 +72,7 @@ Developed a grouping algorithm that aggregates individual deliveries into unifie
   - Pull-System (Levelled production): Enforcing a "No Duplicate Parts" constraint per trip to respect limited rack footprints at workstations and avoid inventory waste.
   - Traffic Congestion Prevention: Ensuring no simultaneous deliveries occur on the same aisle
     
-  - Script: [`delivery_bundling_levveled_with_traffic_checkpy`](./module/delivery_bundling_levelled_with_traffic_check.py) 
+  - Script: [`delivery_bundling_levveled_with_traffic_check.py`](./module/delivery_bundling_levelled_with_traffic_check.py) 
   - Output: [`MIlk_Run_Delivery_Groups.csv`](./output/Milk_Run_Delivery_Groups_levelled.csv)
 
   **3.2 Quantified Resource Reduction:**
