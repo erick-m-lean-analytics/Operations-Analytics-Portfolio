@@ -33,7 +33,7 @@ Without the computational speed of a digital optimisation tool, the planning lea
 **Project Overview**  
 Data-driven optimisation project for a B2B SaaS platform in the automotive parts industry.  
 
-The platform connects smash repairers (purchasers) with OEM and Aftermarket parts suppliers. Repairers use the platform to request quotes and source parts, while suppliers list parts and fulfil orders. The SaaS company earns revenue primarily through a **clip % (take-rate / commission)** on the value of parts sold through the platform. Suppliers operate under a tiered membership model (Gold vs Blue) that influences their effective take-rate and platform benefits.
+The platform connects smash repairers (purchasers) with OEM and Aftermarket parts suppliers. Repairers use the platform to request quotes and source parts, while suppliers list parts and fulfil orders. The SaaS company earns revenue primarily through a **clip % (take-rate / commission)** on the value of parts sold through the platform. Suppliers operate under a tiered membership model that influences their effective take-rate and platform benefits.
 
 **Problem Statement**  
 The business needed to review and optimise its pricing model to improve revenue while maintaining supplier retention. Using recent monthly transactional data, the key challenge was to understand how different supplier tiers and clip % (take-rates) affect order volume, GMV, credits, and overall platform economics.
@@ -76,9 +76,9 @@ The SQL queries and Python scripts in this project closely reflect the logic and
 
 **Project Overview**
 
-Data-driven optimisation project for a B2B SaaS platform serving the Australian smash repair industry.
+Data-driven optimisation project for a B2B SaaS platform in the automotive parts industry. 
 
-The platform enables smash repair workshops (purchasers) to source automotive parts from OEM, parallel, aftermarket, recycled, and reconditioned suppliers. Workshops apply configurable markup rulesets to determine the final sell price to insurers or walk-in customers. These rules operate at both the client level (standard/default markups with custom overrides) and the insurer level (specific markups by part type). The effective markup flows through quoting, supplier pricing selection, purchase orders, and automated invoice posting.
+The platform enables smash repair workshops (purchasers) to source automotive parts from OEM, aftermarket, recycled, and reconditioned suppliers. Workshops apply configurable markup rulesets to determine the final sell price to insurers or walk-in customers. These rules operate at both the client level (standard/default markups with custom overrides) and the insurer level (specific markups by part type). The effective markup flows through quoting, supplier pricing selection, purchase orders, and automated invoice posting.
 
 **Problem Statement**
 Active smash repair workshops were frequently manually editing markup rules in the platform. This caused undercharging or overcharging of insurers and customers, friction and approval delays, higher rework rates, longer lead times for repairs, and increased dependency on support team training.
@@ -107,12 +107,14 @@ Active smash repair workshops were frequently manually editing markup rules in t
 - Recommended a targeted list of smash repairers for the pilot program to test the new baseline ruleset
 
 **Status:** Completed – generalised queries, synthetic dataset, and insights available
-→ View Full Project Details
+
+→ [View Full Project Details](./projects/insurer-markup-ruleset-optimisation)
+
 
 **Confidentiality Note**  
 The SQL queries in this project closely reflect the logic and approach I used in the real analysis. Table names, column names, and all data have been generalised and replaced with synthetic examples to protect confidentiality. The original work was performed on a private production database.
 
-→ [View Full Project Details](./projects/insurer-markup-ruleset-optimisation)
+
 
 
 
